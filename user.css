@@ -22,6 +22,17 @@
         "Microsoft Ya Hei", sans-serif !important;
 }
 
+span:has(kbd) {
+    background: transparent !important;
+}
+
+kbd {
+    background: var(--tap-overlay-2);
+    border: 1px solid var(--spice-tap-border-light);
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
 #global-nav-bar {
     height: 50px !important;
     -webkit-app-region: drag;
@@ -51,8 +62,7 @@
     box-sizing: border-box !important;
     min-block-size: 30px !important;
     box-shadow: none !important;
-    border-radius: 4px !important;
-
+    border-radius: 6px !important;
     transition: all 0.2s ease-in-out;
 }
 
@@ -131,9 +141,96 @@
     border-radius: 12px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    background-color: rgba(var(--spice-rgb-main), 0.7);
+    background-color: rgba(var(--spice-rgb-main), 0.8);
 }
 
-.Root__globalNav form #search-dropdown div:has(div ul) div {
-    backdrop-filter: var(--blur);
+.Root__globalNav form #search-dropdown div:has(div ul) div:has(div[aria-label*="Use arrow keys"]),
+.Root__globalNav form #search-dropdown div:has(div ul) div:has(ul) {
+    backdrop-filter: blur(var(--blur)) saturate(400%);
+    overflow-x: hidden !important;
+}
+
+.Root__globalNav form #search-dropdown div:has(div ul) div:has(div[aria-label*="Use arrow keys"])::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0.4;
+    background-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/noise.png");
+}
+
+.Root__globalNav form #search-dropdown div:has(div ul) div div[aria-label*="Use arrow keys"] {
+    display: none;
+}
+
+.e-10860-legacy-list-row--has-leading {
+    margin: 0;
+    padding-block: 8px !important;
+}
+
+.e-10860-legacy-list-row--has-leading:hover::after {
+    background: var(--tap-overlay-1) !important;
+}
+
+.e-10860-legacy-list-row--has-leading:hover .e-10860-legacy-list-row__header-side::before {
+    content: '';
+    display: block;
+    top: 50%;
+    transform: translate(-8px, -50%);
+    height: 40%;
+    width: 4px;
+    position: absolute;
+    background: var(--spice-accent);
+    border-radius: 9999px;
+}
+
+.e-10860-legacy-list-row__header-side a div:has(svg),
+.e-10860-legacy-list-row__header-side div div:has(img) {
+    width: 40px !important;
+    height: 40px !important;
+    background: var(--spice-alt-text);
+    border-radius: 6px;
+}
+
+.e-10860-legacy-list-row__header-side a svg {
+    width: 18px !important;
+    height: 18px !important;
+    mask-size: 100%;
+    background: var(--spice-text) !important;
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_history_24_regular.svg");
+}
+
+.e-10860-legacy-list-row__header-side a svg path {
+    display: none;
+}
+
+.e-10860-legacy-list-row__header button[aria-label*="Remove"] {
+    margin-right: 8px;
+}
+
+.e-10860-legacy-list-row__header button[aria-label*="Remove"] svg {
+    width: 18px;
+    height: 18px;
+    background: var(--spice-text);
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_dismiss_24_regular.svg");
+}
+
+.e-10860-legacy-list-row__header button[aria-label*="Remove"] svg path {
+    display: none;
+}
+
+button.e-10860-legacy-button.e-10860-legacy-button-tertiary.e-10860-overflow-wrap-anywhere.e-10860-button-tertiary--icon-only-medium.e-10860-button-tertiary--icon-only.encore-internal-color-text-base[aria-label*="Play"] svg {
+    width: 16px;
+    height: 16px;
+    mask-size: 100%;
+    background: var(--spice-text);
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_play_24_filled.svg");
+}
+
+button.e-10860-legacy-button.e-10860-legacy-button-tertiary.e-10860-overflow-wrap-anywhere.e-10860-button-tertiary--icon-only-medium.e-10860-button-tertiary--icon-only.encore-internal-color-text-base[aria-label*="Pause"] svg {
+    width: 16px;
+    height: 16px;
+    mask-size: 100%;
+    background: var(--spice-text);
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_pause_24_filled.svg");
 }
