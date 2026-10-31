@@ -1,0 +1,74 @@
+:root {
+    --radius-1: 0.75rem;
+    --radius-2: 0.5rem;
+
+    --blur: 2.5rem;
+
+    --card-gap: 0.5rem;
+    
+    --shadow: rgba(var(--spice-rgb-subtext), 0.125);
+
+    --noise-texture: url("https://nimsandu.github.io/spicetify-bloom/assets/noise/noise.png");
+    --noise-opacity: 7.5%;
+
+    --tap-overlay-1: rgba(150, 150, 150, 0.1);
+    --tap-overlay-2: rgba(150, 150, 150, 0.151);
+    --tap-overlay-dark: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    font-family:
+        "Segoe UI Variable Display", "Segoe UI Variable Text", "Segoe UI",
+        "Microsoft Ya Hei", sans-serif !important;
+}
+
+#global-nav-bar {
+    height: 50px !important;
+    -webkit-app-region: drag;
+    background-color: #20201f !important;
+}
+
+/* Force non-drag behavior on the space below or around it */
+.Root__top-container {
+    -webkit-app-region: no-drag !important;
+}
+
+#Desktop_LeftSidebar_Id {
+    background-color: var(--spice-sidebar) !important;
+}
+
+.Root__globalNav div div:has(.Root__globalNav .main-globalNav-link-icon, form),
+.Root__globalNav form div:has(input:placeholder-shown) {
+    height: 32px !important;
+}
+
+.Root__globalNav form input {
+    height: 32px !important;
+    padding: 0 0 0 48px;
+    padding-inline-end: 0 !important;
+    background: var(--tap-overlay-1) !important;
+    border: 1px solid var(--spice-tap-border-light) !important;
+    box-sizing: border-box !important;
+    min-block-size: 30px !important;
+    box-shadow: none !important;
+    border-radius: 4px !important;
+
+    transition: all 0.2s ease-in-out;
+}
+
+.Root__globalNav form input:hover {
+    background: var(--tap-overlay-2) !important;
+}
+
+.Root__globalNav form input:focus {
+    background: var(--tap-overlay-dark) !important;
+    border: 1px solid var(--spice-tap-border-dark) !important;
+    border-bottom: 2px solid var(--spice-accent) !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+.Root__globalNav form input,
+.Root__globalNav form div:has(input) div span {
+    font-size: 14px !important;
+}
