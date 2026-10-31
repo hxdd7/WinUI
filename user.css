@@ -39,12 +39,12 @@
 
 .Root__globalNav div div:has(.Root__globalNav .main-globalNav-link-icon, form),
 .Root__globalNav form div:has(input:placeholder-shown) {
-    height: 32px !important;
+    height: 34px !important;
 }
 
 .Root__globalNav form input {
-    height: 32px !important;
-    padding: 0 0 0 48px;
+    height: 34px !important;
+    padding: 0 0 0 34px;
     padding-inline-end: 0 !important;
     background: var(--tap-overlay-1) !important;
     border: 1px solid var(--spice-tap-border-light) !important;
@@ -71,4 +71,39 @@
 .Root__globalNav form input,
 .Root__globalNav form div:has(input) div span {
     font-size: 14px !important;
+}
+
+.Root__globalNav form button svg path {
+    display: none;
+}
+
+.Root__globalNav form div:has(button[aria-label*="Search"]),
+.Root__globalNav form button[aria-label*="Search"] {
+    height: 34px !important;
+    width: 34px !important;
+}
+
+.Root__globalNav form button svg {
+    height: 16px !important;
+    width: 16px !important;
+    mask-size: 100%;
+    background: var(--spice-text);
+}
+
+.Root__globalNav form button[aria-label*="Search"] svg {
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_search_24_filled.svg");
+}
+
+.Root__globalNav form button[aria-label*="Clear search"] svg {
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_dismiss_24_regular.svg");
+}
+
+.Root__globalNav form button[aria-label*="Browse"] svg {
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_app_folder_24_regular.svg");
+}
+
+.Root__globalNav form div:has(button[aria-label*="Browse"]) {
+    display: flex;
+    border-inline-start: none !important;
+    padding-inline: 0 !important;
 }
