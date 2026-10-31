@@ -5,7 +5,7 @@
     --blur: 2.5rem;
 
     --card-gap: 0.5rem;
-    
+
     --shadow: rgba(var(--spice-rgb-subtext), 0.125);
 
     --noise-texture: url("https://nimsandu.github.io/spicetify-bloom/assets/noise/noise.png");
@@ -63,9 +63,27 @@
 .Root__globalNav form input:focus {
     background: var(--tap-overlay-dark) !important;
     border: 1px solid var(--spice-tap-border-dark) !important;
-    border-bottom: 2px solid var(--spice-accent) !important;
+    /* border-bottom: 2px solid var(--spice-accent) !important; */
     border-bottom-left-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
+}
+
+.Root__globalNav form div:has(input)::after {
+    content: "";
+    height: 2px;
+    width: 100%;
+    background: transparent;
+    display: flex;
+    position: absolute;
+}
+
+.Root__globalNav form div:has(input:focus)::after {
+    content: "";
+    height: 2px;
+    width: 100%;
+    background: var(--spice-accent);
+    display: flex;
+    position: absolute;
 }
 
 .Root__globalNav form input,
@@ -91,7 +109,7 @@
 }
 
 .Root__globalNav form button[aria-label*="Search"] svg {
-    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_search_24_filled.svg");
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_search_24_regular.svg");
 }
 
 .Root__globalNav form button[aria-label*="Clear search"] svg {
@@ -99,11 +117,23 @@
 }
 
 .Root__globalNav form button[aria-label*="Browse"] svg {
-    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_app_folder_24_regular.svg");
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_collections_24_regular.svg");
 }
 
 .Root__globalNav form div:has(button[aria-label*="Browse"]) {
     display: flex;
     border-inline-start: none !important;
     padding-inline: 0 !important;
+}
+
+.Root__globalNav form #search-dropdown div:has(div ul) {
+    margin-top: 2px;
+    border-radius: 12px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background-color: rgba(var(--spice-rgb-main), 0.7);
+}
+
+.Root__globalNav form #search-dropdown div:has(div ul) div {
+    backdrop-filter: var(--blur);
 }
