@@ -219,7 +219,7 @@ kbd {
 
 .e-10860-legacy-list-row--has-leading {
     margin: 0;
-    padding-block: 8px !important;
+    /* padding-block: 8px !important; */
     cursor: auto !important;
 }
 
@@ -577,20 +577,52 @@ div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ) .s
     top: 4px;
 }
 
-div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ) .e-10860-legacy-list-row__column {
+/* div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ) .e-10860-legacy-list-row__column {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     flex-direction: row;
     gap: 16px;
-}
+} */
 
 div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ) .e-10860-legacy-list-row__column::before {
     content: '';
-    width: 16px;
-    height: 16px;
+    width: 20px !important;
+    height: 20px !important;
+    mask-size: 100%;
+    background: var(--spice-text);
+    margin-left: 4px;
+    position: absolute;
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_filmstrip_music_note_2_20_regular.svg");
+}
+
+div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ) .e-10860-legacy-list-row__column div:has(p) {
+    margin-left: 40px;
+}
+
+div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ) .e-10860-legacy-list-row--has-leading {
+    padding-block: 4px !important;
+    grid-template-columns: none;
+}
+
+/* div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ) .e-10860-legacy-list-row--has-leading.e-10860-legacy-list-row__column::before {
+    content: '';
+    width: 20px !important;
+    height: 20px !important;
     mask-size: 100%;
     background: var(--spice-text);
     margin-left: 4px;
     mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_filmstrip_music_note_2_20_regular.svg");
+} */
+
+div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ) .e-10860-legacy-box:has(div[id*="folder"]) .e-10860-legacy-list-row__column::before {
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_folder_regular.svg");
 }
+
+div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ) .e-10860-legacy-list-row__header-side {
+    display: none;
+}
+
+/* div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ) .e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ {
+    margin-inline-start: 0 !important;
+} */
