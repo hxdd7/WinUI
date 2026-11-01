@@ -8,12 +8,16 @@
 
     --shadow: rgba(var(--spice-rgb-subtext), 0.125);
 
-    --noise-texture: url("https://nimsandu.github.io/spicetify-bloom/assets/noise/noise.png");
-    --noise-opacity: 7.5%;
-
     --tap-overlay-1: rgba(150, 150, 150, 0.1);
     --tap-overlay-2: rgba(150, 150, 150, 0.151);
     --tap-overlay-dark: rgba(0, 0, 0, 0.1);
+
+    --caption-size: 12px;
+    --caption-height: 16px;
+    --body-size: 14px;
+    --body-height: 20px;
+
+    --body-strong-weight: semi-bold;
 }
 
 * {
@@ -31,21 +35,29 @@ kbd {
     border: 1px solid var(--spice-tap-border-light);
     box-shadow: none !important;
     border-radius: 6px !important;
+    font-size: var(--caption-size) !important;
+    line-height: var(--caption-height) !important;
+}
+
+.encore-text-body-small, .encore-text-body-small-bold,
+.encore-text-body-medium, .encore-text-body-medium-bold {
+    font-size: var(--body-size) !important;
+    line-height: var(--body-height) !important;
 }
 
 #global-nav-bar {
     height: 50px !important;
     -webkit-app-region: drag;
-    background-color: #20201f !important;
+    background-color: var(--spice-sidebar) !important;
+}
+
+#main-view {
+    border: 1px solid var(--spice-dark-border);
 }
 
 /* Force non-drag behavior on the space below or around it */
 .Root__top-container {
     -webkit-app-region: no-drag !important;
-}
-
-#Desktop_LeftSidebar_Id {
-    background-color: var(--spice-sidebar) !important;
 }
 
 .Root__globalNav div div:has(.Root__globalNav .main-globalNav-link-icon, form),
@@ -98,10 +110,21 @@ kbd {
 
 .Root__globalNav form input,
 .Root__globalNav form div:has(input) div span {
-    font-size: 14px !important;
+    font-size: var(--body-size) !important;
+    line-height: var(--body-height) !important;
 }
 
-.Root__globalNav form button svg path {
+.Root__globalNav
+    form
+    button:not(
+        button[aria-label*="Add to Liked Songs"],
+        button[aria-label*="Remove from Liked Songs"],
+        button[aria-label*="Save"],
+        button[aria-label*="More"],
+        button[aria-label*="Remove"]
+    )
+    svg
+    path {
     display: none;
 }
 
@@ -111,11 +134,29 @@ kbd {
     width: 34px !important;
 }
 
-.Root__globalNav form button svg {
+.Root__globalNav
+    form
+    button:not(
+        button[aria-label*="Add to Liked Songs"],
+        button[aria-label*="Remove from Liked Songs"],
+        button[aria-label*="Save"],
+        button[aria-label*="More"],
+        button[aria-label*="Remove"]
+    )
+    svg {
     height: 16px !important;
     width: 16px !important;
     mask-size: 100%;
     background: var(--spice-text);
+}
+
+.Root__globalNav form button[aria-label*="Add to Liked Songs"] svg,
+.Root__globalNav form button[aria-label*="Save"] svg {
+    fill: var(--spice-subtext);
+}
+
+.Root__globalNav form button[aria-label*="Remove from Liked Songs"] svg {
+    fill: var(--spice-accent);
 }
 
 .Root__globalNav form button[aria-label*="Search"] svg {
@@ -144,14 +185,22 @@ kbd {
     background-color: rgba(var(--spice-rgb-main), 0.8);
 }
 
-.Root__globalNav form #search-dropdown div:has(div ul) div:has(div[aria-label*="Use arrow keys"]),
+.Root__globalNav
+    form
+    #search-dropdown
+    div:has(div ul)
+    div:has(div[aria-label*="Use arrow keys"]),
 .Root__globalNav form #search-dropdown div:has(div ul) div:has(ul) {
     backdrop-filter: blur(var(--blur)) saturate(400%);
     overflow-x: hidden !important;
 }
 
-.Root__globalNav form #search-dropdown div:has(div ul) div:has(div[aria-label*="Use arrow keys"])::before {
-    content: '';
+.Root__globalNav
+    form
+    #search-dropdown
+    div:has(div ul)
+    div:has(div[aria-label*="Use arrow keys"])::before {
+    content: "";
     width: 100%;
     height: 100%;
     position: absolute;
@@ -159,21 +208,35 @@ kbd {
     background-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/noise.png");
 }
 
-.Root__globalNav form #search-dropdown div:has(div ul) div div[aria-label*="Use arrow keys"] {
+.Root__globalNav
+    form
+    #search-dropdown
+    div:has(div ul)
+    div
+    div[aria-label*="Use arrow keys"] {
     display: none;
 }
 
 .e-10860-legacy-list-row--has-leading {
     margin: 0;
     padding-block: 8px !important;
+    cursor: auto !important;
+}
+
+.e-10860-legacy-list-row--has-leading,
+a:not([data-encore-id]):hover,
+.e-10860-legacy-list-row__on-click {
+    cursor: default;
+    text-decoration: none;
 }
 
 .e-10860-legacy-list-row--has-leading:hover::after {
     background: var(--tap-overlay-1) !important;
 }
 
-.e-10860-legacy-list-row--has-leading:hover .e-10860-legacy-list-row__header-side::before {
-    content: '';
+.e-10860-legacy-list-row--has-leading:hover
+    .e-10860-legacy-list-row__header-side::before {
+    content: "";
     display: block;
     top: 50%;
     transform: translate(-8px, -50%);
@@ -190,6 +253,7 @@ kbd {
     height: 40px !important;
     background: var(--spice-alt-text);
     border-radius: 6px;
+    overflow: hidden;
 }
 
 .e-10860-legacy-list-row__header-side a svg {
@@ -197,7 +261,7 @@ kbd {
     height: 18px !important;
     mask-size: 100%;
     background: var(--spice-text) !important;
-    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_history_24_regular.svg");
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_search_24_regular.svg");
 }
 
 .e-10860-legacy-list-row__header-side a svg path {
@@ -208,18 +272,42 @@ kbd {
     margin-right: 8px;
 }
 
-.e-10860-legacy-list-row__header button[aria-label*="Remove"] svg {
+.e-10860-legacy-list-row__header
+    button[aria-label*="Remove"]:not(
+        button[aria-label*="Remove from Liked Songs"]
+    )
+    svg,
+.e-10860-legacy-list-row__header button[aria-label*="More"] svg {
     width: 18px;
     height: 18px;
-    background: var(--spice-text);
+    background: var(--spice-subtext);
+}
+
+.e-10860-legacy-list-row__header
+    button[aria-label*="Remove"]:not(
+        button[aria-label*="Remove from Liked Songs"]
+    )
+    svg {
+    mask-size: 100%;
     mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_dismiss_24_regular.svg");
 }
 
-.e-10860-legacy-list-row__header button[aria-label*="Remove"] svg path {
+.e-10860-legacy-list-row__header button[aria-label*="More"] svg {
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_more_horizontal_24_regular.svg");
+}
+
+.e-10860-legacy-list-row__header
+    button[aria-label*="Remove"]:not(
+        button[aria-label*="Remove from Liked Songs"]
+    )
+    svg
+    path,
+.e-10860-legacy-list-row__header button[aria-label*="More"] svg path {
     display: none;
 }
 
-button.e-10860-legacy-button.e-10860-legacy-button-tertiary.e-10860-overflow-wrap-anywhere.e-10860-button-tertiary--icon-only-medium.e-10860-button-tertiary--icon-only.encore-internal-color-text-base[aria-label*="Play"] svg {
+button.e-10860-legacy-button.e-10860-legacy-button-tertiary.e-10860-overflow-wrap-anywhere.e-10860-button-tertiary--icon-only-medium.e-10860-button-tertiary--icon-only.encore-internal-color-text-base[aria-label*="Play"]
+    svg {
     width: 16px;
     height: 16px;
     mask-size: 100%;
@@ -227,10 +315,207 @@ button.e-10860-legacy-button.e-10860-legacy-button-tertiary.e-10860-overflow-wra
     mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_play_24_filled.svg");
 }
 
-button.e-10860-legacy-button.e-10860-legacy-button-tertiary.e-10860-overflow-wrap-anywhere.e-10860-button-tertiary--icon-only-medium.e-10860-button-tertiary--icon-only.encore-internal-color-text-base[aria-label*="Pause"] svg {
+button.e-10860-legacy-button.e-10860-legacy-button-tertiary.e-10860-overflow-wrap-anywhere.e-10860-button-tertiary--icon-only-medium.e-10860-button-tertiary--icon-only.encore-internal-color-text-base[aria-label*="Pause"]
+    svg {
     width: 16px;
     height: 16px;
     mask-size: 100%;
     background: var(--spice-text);
     mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_pause_24_filled.svg");
+}
+
+.Root__globalNav .main-globalNav-link-icon {
+    width: 48px;
+    height: 48px;
+    background: transparent;
+}
+
+.Root__globalNav .main-globalNav-link-icon svg {
+    width: 24px !important;
+    height: 24px !important;
+    mask-size: 100%;
+    background: var(--spice-subtext);
+}
+
+.Root__globalNav .main-globalNav-link-icon.main-globalNav-navLinkActive::after {
+    content: "";
+    position: absolute;
+    bottom: 6px;
+    width: 16px;
+    height: 3px;
+    border-radius: 9999px;
+    background: var(--spice-accent);
+}
+
+.Root__globalNav .main-globalNav-link-icon.main-globalNav-navLinkActive svg {
+    background: var(--spice-accent);
+}
+
+.Root__globalNav .main-globalNav-link-icon svg path {
+    display: none;
+}
+
+.Root__globalNav .main-globalNav-link-icon[aria-label*="Home"] {
+    transform: translateY(-8px);
+}
+
+.Root__globalNav .main-globalNav-link-icon[aria-label*="Home"] svg {
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_home_24_regular.svg");
+}
+
+.Root__globalNav
+    .main-globalNav-link-icon.main-globalNav-navLinkActive[aria-label*="Home"]
+    svg {
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_home_24_filled.svg");
+}
+
+.Root__globalNav .main-globalNav-link-icon[aria-label*="Marketplace"] svg {
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_apps_24_regular.svg");
+}
+
+.Root__globalNav
+    .main-globalNav-link-icon.main-globalNav-navLinkActive[aria-label*="Marketplace"]
+    svg {
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_apps_24_filled.svg");
+}
+
+.main-actionButtons-button svg {
+    width: 16px;
+    height: 16px;
+    mask-size: 100%;
+    background: var(--spice-subtext);
+}
+
+.main-actionButtons-button svg path {
+    display: none;
+}
+
+.main-actionButtons-button[aria-label*="What's New"] svg {
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_alert_24_regular.svg");
+}
+
+.main-actionButtons-button[aria-label*="Listening activity"] svg {
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_people_24_regular.svg");
+}
+
+button:has(figure) {
+    background: transparent !important;
+    cursor: default !important;
+}
+
+button figure div {
+    width: 32px !important;
+    height: 32px !important;
+    border: 1px solid var(--tap-overlay-1);
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+}
+
+button:has(figure):hover figure div {
+    transform: scale(0.9);
+}
+
+/* -------------------------------------------------------------- Left Siedbar -------------------------------------------------------------- */
+
+
+#Desktop_LeftSidebar_Id {
+    background-color: var(--spice-sidebar) !important;
+}
+
+#Desktop_LeftSidebar_Id:has(.YourLibraryX.DI89ZzyBFWdj6IDJRtj_) {
+    width: 64px !important;
+}
+
+#Desktop_LeftSidebar_Id nav .YourLibraryX {
+    background-color: var(--spice-sidebar) !important;
+}
+
+.e-10860-legacy-list-row__header-side-flex div {
+    box-shadow: none !important;
+    width: 40px !important;
+    height: 40px !important;
+}
+
+.e-10860-legacy-list-row__header-side-flex div:nth-child(1):not(:has(img)) div div:has(svg) {
+    background: var(--spice-default-bg) !important;
+    border: 1px solid var(--spice-light-border);
+    border-radius: 6px;
+}
+
+#Desktop_LeftSidebar_Id .e-10860-legacy-list-row--has-leading {
+    height: 56px;
+    margin: 2px 0;
+}
+
+#Desktop_LeftSidebar_Id .e-10860-legacy-list-row__header-side,
+.e-10860-legacy-list-row__header {
+    height: 40px;
+}
+
+.e-10860-legacy-box--interactive:not(.e-10860-legacy-box--tinted):active:after {
+    width: 100%;
+    height: 100%;
+    margin: 4px;
+}
+
+#Desktop_LeftSidebar_Id .e-10860-legacy-list-row--has-leading:hover .e-10860-legacy-list-row__header-side::before {
+    display: none;
+}
+
+div[role="grid"][aria-label="Your Library"],
+.main-yourLibraryX-libraryRootlist {
+  position: relative !important;
+}
+
+/* WinUI / Windows Store styled active vertical indicator */
+.spicetify-nav-indicator {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 24px;
+  background-color: var(--spice-accent) !important; /* WinUI Blue Accent */
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 9999 !important; /* Ensure it floats above row hover tints */
+  transition: transform 0.25s cubic-bezier(0.33, 1, 0.68, 1), opacity 0.15s ease;
+  opacity: 0;
+  will-change: transform;
+}
+
+#Desktop_LeftSidebar_Id .e-10860-legacy-list-row--has-leading:has(div[id*="artist"]) .e-10860-legacy-list-row__header-side div div:has(img) {
+    border-radius: 50%;
+}
+
+.main-yourLibraryX-header h1 {
+    font-size: var(--body-size);
+    font-weight: var(--body-strong-weight) !important;
+}
+
+.main-yourLibraryX-header button[aria-label*="Collapse Your Library"] span svg,
+.main-yourLibraryX-header button[aria-label*="Open Your Library"] span svg {
+    width: 16px;
+    height: 16px;
+    mask-size: 100%;
+    background: var(--spice-text);
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_navigation_24_regular.svg");
+}
+
+.main-yourLibraryX-header button[aria-label*="Collapse Your Library"] span svg path,
+.main-yourLibraryX-header button[aria-label*="Open Your Library"] span svg path {
+    display: none;
+}
+
+.main-yourLibraryX-header button[aria-label*="Open Your Library"] {
+    width: 32px;
+    height: 32px;
+    padding: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-yourLibraryX-header button[aria-label*="Open Your Library"] span {
+    width: 16px;
+    height: 16px;
 }
