@@ -380,8 +380,8 @@ button.e-10860-legacy-button.e-10860-legacy-button-tertiary.e-10860-overflow-wra
 }
 
 .main-actionButtons-button svg {
-    width: 16px;
-    height: 16px;
+    width: 24px;
+    height: 24px;
     mask-size: 100%;
     background: var(--spice-subtext);
 }
@@ -472,7 +472,7 @@ div[role="grid"][aria-label="Your Library"],
   position: absolute;
   left: 0;
   top: 0;
-  width: 4px;
+  width: 3px;
   height: 24px;
   background-color: var(--spice-accent) !important; /* WinUI Blue Accent */
   border-radius: 4px;
@@ -492,13 +492,22 @@ div[role="grid"][aria-label="Your Library"],
     font-weight: var(--body-strong-weight) !important;
 }
 
+.main-yourLibraryX-header button[aria-label*="Open Your Library"] span {
+    background: transparent !important;
+}
+
 .main-yourLibraryX-header button[aria-label*="Collapse Your Library"] span svg,
 .main-yourLibraryX-header button[aria-label*="Open Your Library"] span svg {
-    width: 16px;
-    height: 16px;
+    width: 24px;
+    height: 24px;
     mask-size: 100%;
     background: var(--spice-text);
     mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_navigation_24_regular.svg");
+}
+
+.main-yourLibraryX-header button[aria-label*="Open Your Library"] span svg.e-10860-icon--auto-mirror {
+    /* transform: translate(-2px, 2px); */
+    opacity: 0;
 }
 
 .main-yourLibraryX-header button[aria-label*="Collapse Your Library"] span svg path,
@@ -516,6 +525,72 @@ div[role="grid"][aria-label="Your Library"],
 }
 
 .main-yourLibraryX-header button[aria-label*="Open Your Library"] span {
+    width: 24px;
+    height: 24px;
+}
+
+.main-yourLibraryX-header button[aria-label*="Open Your Library"] span svg {
+    transform: translateY(2px);
+}
+
+.main-yourLibraryX-header button[aria-label*="Collapse Your Library"] span svg {
+    transform: translate(4px, -4px);
+}
+
+span.e-10860-legacy-chip__inner {
+    background: var(--tap-overlay-1) !important;
+    border: 1px solid var(--spice-light-border) !important;
+    padding-inline: 14px !important;
+}
+
+span.e-10860-legacy-chip__inner:hover {
+    background: var(--tap-overlay-2) !important;
+}
+
+span.e-10860-legacy-chip__inner.encore-inverted-light-set {
+    background: var(--spice-accent) !important;
+    border: 1px solid var(--spice-accent) !important;
+    padding-inline: 16px !important;
+}
+
+span.e-10860-legacy-chip__inner:hover {
+    background: var(--spice-accent-hover);
+}
+
+span.e-10860-legacy-chip__inner.encore-inverted-light-set.e-10860-legacy-chip__inner--secondary {
+    padding-inline-start: 48px !important;
+    background: var(--spice-accent-hover) !important;
+}
+
+/* -------------------------------------------------------------- Compact Sidebar -------------------------------------------------------------- */
+
+div[aria-label*="Your Library"] .e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ {
+    height: 36px !important;
+}
+
+div[aria-label*="Your Library"] .e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ .e-10860-legacy-list-row__header {
+    height: 28px;
+}
+
+div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ) .spicetify-nav-indicator {
+    height: 16px;
+    top: 4px;
+}
+
+div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ) .e-10860-legacy-list-row__column {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 16px;
+}
+
+div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ) .e-10860-legacy-list-row__column::before {
+    content: '';
     width: 16px;
     height: 16px;
+    mask-size: 100%;
+    background: var(--spice-text);
+    margin-left: 4px;
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_filmstrip_music_note_2_20_regular.svg");
 }
