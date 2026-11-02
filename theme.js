@@ -1,6 +1,5 @@
 (function SpicetifyThemeIndicator() {
   function initNavIndicator() {
-    // Locate Spotify's Library grid container
     const gridContainer = document.querySelector('div[role="grid"][aria-label="Your Library"]') || 
                           document.querySelector('.main-yourLibraryX-libraryRootlist');
 
@@ -9,7 +8,6 @@
       return;
     }
 
-    // Check if indicator already exists in this fresh container, otherwise create it
     let indicator = gridContainer.querySelector('.spicetify-nav-indicator');
     if (!indicator) {
       indicator = document.createElement('div');
@@ -42,6 +40,9 @@
       let activeRow = gridContainer.querySelector('div[role="row"][aria-selected="true"]');
       if (activeRow) {
         updatePosition(activeRow);
+      } else {
+        // Hide the indicator if nothing in the library sidebar is currently selected
+        indicator.style.opacity = '0';
       }
     }
 
@@ -72,15 +73,12 @@
     syncActiveRow();
   }
 
-  // Watch for global DOM changes (like mode switching) which wipe out the grid container
   function watchForGridRebuild() {
     const rootTarget = document.body;
-    
     let lastKnownGrid = document.querySelector('div[role="grid"][aria-label="Your Library"]');
 
     const globalObserver = new MutationObserver(() => {
       const currentGrid = document.querySelector('div[role="grid"][aria-label="Your Library"]');
-      // If the grid element reference changed (meaning Spotify rebuilt the view), re-initialize!
       if (currentGrid && currentGrid !== lastKnownGrid) {
         lastKnownGrid = currentGrid;
         setTimeout(initNavIndicator, 200);
@@ -93,7 +91,6 @@
     });
   }
 
-  // Hook into Spicetify theme execution safely
   if (window.Spicetify && window.Spicetify.Platform) {
     initNavIndicator();
     watchForGridRebuild();

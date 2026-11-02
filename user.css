@@ -7,6 +7,7 @@
     --card-gap: 0.5rem;
 
     --shadow: rgba(var(--spice-rgb-subtext), 0.125);
+    --shadow-main: rgba(var(--spice-rgb-subtext), 0.125);
 
     --tap-overlay-1: rgba(150, 150, 150, 0.1);
     --tap-overlay-2: rgba(150, 150, 150, 0.151);
@@ -16,8 +17,11 @@
     --caption-height: 16px;
     --body-size: 14px;
     --body-height: 20px;
-
+    --body-strong-size: 16px;
+    --body-strong-height: 20px;
     --body-strong-weight: semi-bold;
+
+    --noise: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/noise.png");
 }
 
 * {
@@ -45,6 +49,14 @@ kbd {
     line-height: var(--body-height) !important;
 }
 
+.encore-internal-color-text-bright-accent {
+    color: var(--spice-accent) !important;
+}
+
+.encore-internal-color-text-bright-accent svg {
+    fill: var(--spice-accent) !important;
+}
+
 #global-nav-bar {
     height: 50px !important;
     -webkit-app-region: drag;
@@ -53,6 +65,9 @@ kbd {
 
 #main-view {
     border: 1px solid var(--spice-dark-border);
+    border-bottom: none;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 
 /* Force non-drag behavior on the space below or around it */
@@ -205,7 +220,7 @@ kbd {
     height: 100%;
     position: absolute;
     opacity: 0.4;
-    background-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/noise.png");
+    background-image: var(--noise);
 }
 
 .Root__globalNav
@@ -430,6 +445,15 @@ button:has(figure):hover figure div {
     background-color: var(--spice-sidebar) !important;
 }
 
+#Desktop_LeftSidebar_Id nav .YourLibraryX::after {
+    content: '';
+    width: 100%;
+    height: 10px;
+    position: absolute;
+    background: linear-gradient(0deg, var(--spice-sidebar), transparent);
+    bottom: 0;
+}
+
 .e-10860-legacy-list-row__header-side-flex div {
     box-shadow: none !important;
     width: 40px !important;
@@ -445,6 +469,7 @@ button:has(figure):hover figure div {
 #Desktop_LeftSidebar_Id .e-10860-legacy-list-row--has-leading {
     height: 56px;
     margin: 2px 0;
+    background: transparent !important;
 }
 
 #Desktop_LeftSidebar_Id .e-10860-legacy-list-row__header-side,
@@ -596,7 +621,11 @@ div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ) .e
     mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_filmstrip_music_note_2_20_regular.svg");
 }
 
-div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ) .e-10860-legacy-list-row__column div:has(p) {
+div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ) .e-10860-legacy-list-row__column:has(div div p)::before {
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/spotify_dj.svg");
+}
+
+div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ) .e-10860-legacy-list-row__column div:has(p span.e-10860-line-clamp) {
     margin-left: 40px;
 }
 
@@ -616,7 +645,7 @@ div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ) .e
 } */
 
 div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ) .e-10860-legacy-box:has(div[id*="folder"]) .e-10860-legacy-list-row__column::before {
-    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_folder_regular.svg");
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_folder_24_regular.svg");
 }
 
 div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ) .e-10860-legacy-list-row__header-side {
@@ -626,3 +655,170 @@ div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ) .e
 /* div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ) .e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ {
     margin-inline-start: 0 !important;
 } */
+
+div[aria-label*="Your Library"] .e-10860-legacy-box .e-10860-legacy-list-row__header button[aria-label*="Collapse folder"] svg {
+    width: 12px;
+    height: 12px;
+    mask-size: 100%;
+    background: var(--spice-text);
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_folder_24_regular.svg");
+    
+}
+
+div[aria-label*="Your Library"] .e-10860-legacy-box .e-10860-legacy-list-row__header button[aria-label*="Expand folder"] svg {
+    width: 12px;
+    height: 12px;
+    mask-size: 100%;
+    background: var(--spice-text);
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_folder_24_regular.svg");
+}
+
+.xNN4u6E5VGbOxYTpOp6X {
+    border-radius: 4px;
+    margin: 4px 0;
+}
+
+.xNN4u6E5VGbOxYTpOp6X[aria-selected*="true"] {
+    background: var(--tap-overlay-1);
+    border-radius: 4px;
+}
+
+.xNN4u6E5VGbOxYTpOp6X[aria-selected*="true"] .e-10860-legacy-box--interactive::after,
+.e-10860-legacy-box--interactive:hover::after,
+div[aria-label*="Your Library"] .e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ {
+    background: transparent !important;
+}
+
+.xNN4u6E5VGbOxYTpOp6X:has(.e-10860-legacy-box--interactive:hover) {
+    background: var(--tap-overlay-1);
+    border-radius: 4px;
+}
+
+/* .cG_EdUD8VD_W0DYHcDlG = SideBar now playing page icon  */
+
+.cG_EdUD8VD_W0DYHcDlG svg {
+    fill: var(--spice-accent) !important;
+}
+
+div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ) .e-10860-legacy-box:has(p.encore-internal-color-text-bright-accent) .e-10860-legacy-list-row__column::before {
+    background: var(--spice-accent);
+}
+
+/* .cG_EdUD8VD_W0DYHcDlG = SideBar header container shadow  */
+
+.ArpdzWdgRW_8lwpikPGW {
+    box-shadow: 0 6px 10px var(--spice-sidebar);
+}
+
+.O6lWIfkdVrTYW3JSTGsQ {
+    border-radius: 4px;
+    background: var(--tap-overlay-dark) !important;
+    border: 1px solid var(--spice-tap-border-dark) !important;
+}
+
+/* -------------------------------------------------------------- Now Playing Bar -------------------------------------------------------------- */
+
+.Root__top-container .XvuTwlgQRqJ5NnVLN9ZH {
+    background: rgba(var(--spice-rgb-main), 0.9);
+    border-top: 1px solid var(--spice-dark-border);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    backdrop-filter: blur(var(--blur)) saturate(200%);
+    /* background-image: var(--noise); */
+}
+.Root__top-container .XvuTwlgQRqJ5NnVLN9ZH::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0.4;
+    background-image: var(--noise);
+}
+
+.main-nowPlayingBar-nowPlayingBar {
+    height: 100px;
+}
+
+.main-nowPlayingBar-nowPlayingBar .RaU_qqM3j6ebjTSxszQE,
+.main-nowPlayingBar-nowPlayingBar button {
+    border-radius: 6px;
+}
+
+.main-nowPlayingBar-nowPlayingBar .WHhQ96NalYH19nEolaqd {
+    width: 70px !important;
+    height: 70px !important;
+    border-radius: 6px;
+}
+
+.main-nowPlayingBar-nowPlayingBar .WHhQ96NalYH19nEolaqd img {
+    border: 1px solid var(--spice-light-border);
+    border-radius: 6px;
+}
+
+/* Play bar song Title */
+
+.main-nowPlayingBar-left .r06_h7KCRxpy1Hwmhcz8 .snZjumJBv7mO_jikMyAG span {
+    font-size: var(--body-strong-size) !important;
+    line-height: var(--body-strong-height) !important;
+    font-weight: var(--body-strong-weight) !important;
+}
+
+.main-nowPlayingBar-center .player-controls__buttons button svg {
+    width: 20px;
+    height: 20px;
+    mask-size: 100%;
+    background: var(--spice-text);
+}
+
+.main-nowPlayingBar-center .player-controls__buttons button svg path {
+    display: none;
+}
+
+.main-nowPlayingBar-center .player-controls__buttons button[aria-label*="Enable Shuffle"] svg {
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_arrow_shuffle_off_24_regular.svg");
+}
+
+.main-nowPlayingBar-center .player-controls__buttons button[aria-label*="Enable Smart Shuffle"] svg {
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_arrow_shuffle_24_regular.svg");
+}
+
+.main-nowPlayingBar-center .player-controls__buttons button[aria-label*="Disable Smart Shuffle"] svg {
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_arrow_shuffle_off_24_regular.svg");
+}
+
+.main-nowPlayingBar-center .player-controls__buttons button[aria-label*="Enable repeat"] svg {
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_arrow_repeat_all_24_regular.svg");
+}
+
+.main-nowPlayingBar-center .player-controls__buttons button[aria-label*="Enable repeat one"] svg {
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_arrow_repeat_all_off_24_regular.svg");
+}
+
+.main-nowPlayingBar-center .player-controls__buttons button[aria-label*="Disable repeat"] svg {
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_arrow_repeat_1_24_regular.svg");
+}
+
+.main-nowPlayingBar-center .player-controls__buttons button[aria-label*="Previous"] svg {
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_previous_24_filled.svg");
+}
+
+.main-nowPlayingBar-center .player-controls__buttons button[aria-label*="Next"] svg {
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_next_24_filled.svg");
+}
+
+button .e-10860-button-primary__inner {
+    background: transparent !important;
+}
+
+.main-nowPlayingBar-center .player-controls__buttons button[aria-label*="Pause"] svg {
+    width: 30px;
+    height: 30px;
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/FluentPause12Filled.svg");
+}
+
+.main-nowPlayingBar-center .player-controls__buttons button[aria-label*="Play"] svg {
+    width: 30px;
+    height: 30px;
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/FluentPlay12Filled.svg");
+}
