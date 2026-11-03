@@ -66,6 +66,7 @@ kbd {
 #main-view {
     border: 1px solid var(--spice-dark-border);
     border-bottom: none;
+    border-radius: 10px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
 }
@@ -584,7 +585,7 @@ span.e-10860-legacy-chip__inner:hover {
 span.e-10860-legacy-chip__inner.encore-inverted-light-set {
     background: var(--spice-accent) !important;
     border: 1px solid var(--spice-accent) !important;
-    padding-inline: 16px !important;
+    padding-inline: 14px !important;
 }
 
 span.e-10860-legacy-chip__inner:hover {
@@ -631,7 +632,7 @@ div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ) .e
 }
 
 div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ) .e-10860-legacy-list-row__column:has(div div p)::before {
-    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/FluentCircleMultipleConcentric24Regular.svg");
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/FluentSoundWaveCircleSparkle24Regular.svg");
 }
 
 div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ) .e-10860-legacy-list-row__column div:has(p span.e-10860-line-clamp) {
@@ -655,6 +656,14 @@ div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ) .e
 
 div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ) .e-10860-legacy-box:has(div[id*="folder"]) .e-10860-legacy-list-row__column::before {
     mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_folder_24_regular.svg");
+}
+
+div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ) .e-10860-legacy-box:has(div[id*="artist"]) .e-10860-legacy-list-row__column::before {
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/FluentPerson24Regular.svg");
+}
+
+div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ) .e-10860-legacy-box:has(div[id*="album"]) .e-10860-legacy-list-row__column::before {
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/FluentCircleMultipleConcentric24Regular.svg");
 }
 
 div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ) .e-10860-legacy-list-row__header-side {
@@ -756,6 +765,8 @@ div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ) .e
     position: absolute;
     opacity: 0.4;
     background-image: var(--noise);
+    margin-left: -8px;
+    margin-top: -8px;
 }
 
 .main-nowPlayingBar-nowPlayingBar {
@@ -801,7 +812,8 @@ div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ) .e
     display: none;
 }
 
-.main-nowPlayingBar-center .player-controls__buttons button[aria-label*="Enable Shuffle"] svg {
+.main-nowPlayingBar-center .player-controls__buttons button[aria-label*="Enable Shuffle"] svg,
+.main-nowPlayingBar-center .player-controls__buttons button[aria-label*="Shuffle"] svg {
     mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_arrow_shuffle_off_24_regular.svg");
 }
 
@@ -840,14 +852,14 @@ button.e-10860-legacy-button-secondary--text-base {
 }
 
 .main-nowPlayingBar-center .player-controls__buttons button[aria-label*="Pause"] svg {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
     mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/FluentPause12Filled.svg");
 }
 
 .main-nowPlayingBar-center .player-controls__buttons button[aria-label*="Play"] svg {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
     mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/FluentPlay12Filled.svg");
 }
 
@@ -916,6 +928,31 @@ aside[aria-label*="Queue"] .e-10860-legacy-box--interactive button.e-10860-legac
     padding: 12px;
 }
 
+.Gf9V3C4X_WPPfvjwXujC {
+    background: var(--spice-accent) !important;
+    border: 1px solid var(--spice-accent-highlight);
+    border-bottom: 1px solid var(--spice-accent-hover);
+    border-right: 1px solid var(--spice-accent-hover);
+    border-radius: 6px !important;
+    outline: none !important;
+}
+
+.Gf9V3C4X_WPPfvjwXujC:hover {
+    background: var(--spice-accent-hover) !important;
+}
+
+.Gf9V3C4X_WPPfvjwXujC svg {
+    width: 18px !important;
+    height: 18px !important;
+    mask-size: 100%;
+    background: var(--spice-alt-text) !important;
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/FluentSoundWaveCircleSparkle24Regular.svg");
+}
+
+.Gf9V3C4X_WPPfvjwXujC svg path {
+    display: none;
+}
+
 /* -------------------------------------------------------------- Now Playing View (NPV) -------------------------------------------------------------- */
 
 /* NPV overflow bottom padding */
@@ -926,9 +963,9 @@ aside[aria-label*="Now playing view"] .PrgN1zoSiZcVCNSWQwci {
 
 /* NPV Title bottom shadow */
 
-._qEwikUlZSIdhG1eHl6y {
+/* ._qEwikUlZSIdhG1eHl6y {
     box-shadow: 0 6px 10px var(--spice-panel) !important;
-}
+} */
 
 
 
@@ -954,3 +991,43 @@ button.e-10860-legacy-button-secondary--text-base:hover,
 .bvwKlnQTGRXyuQjCSHps button.e-10860-legacy-button-primary:hover span:has(span) {
     background: var(--tap-overlay-2) !important;
 }
+
+/* -------------------------------------------------------------- Main View -------------------------------------------------------------- */
+
+button .e-10860-button-primary__inner.encore-bright-accent-set {
+    background: var(--spice-accent) !important;
+    border: 1px solid var(--spice-accent-highlight);
+    border-bottom: 1px solid var(--spice-accent-hover);
+    border-right: 1px solid var(--spice-accent-hover);
+    border-radius: 6px !important;
+    outline: none !important;
+}
+
+button .e-10860-button-primary__inner.encore-bright-accent-set svg {
+    width: 28px;
+    height: 28px;
+    mask-size: 100%;
+    background: var(--spice-alt-text) !important;
+}
+
+button .e-10860-button-primary__inner.encore-bright-accent-set svg path {
+    display: none;
+}
+
+button[aria-label*="Pause"] .e-10860-button-primary__inner.encore-bright-accent-set svg {
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_pause_24_filled.svg");
+}
+
+button[aria-label*="Play"] .e-10860-button-primary__inner.encore-bright-accent-set svg {
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_play_24_filled.svg");
+}
+
+.main-entityHeader-image {
+    border-radius: 8px;
+}
+
+.contentSpacing {
+    padding: 0 56px;
+}
+
+.main-entityHeader-contentWrapper {margin: 56px 56px 0 56px;background: red !important;}
