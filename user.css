@@ -48,7 +48,7 @@ kbd {
 .encore-text-body-medium,
 .encore-text-body-medium-bold {
     font-size: var(--body-size) !important;
-    /* line-height: var(--body-height) !important; */
+    line-height: var(--body-height) !important;
 }
 
 .encore-internal-color-text-bright-accent {
@@ -1216,6 +1216,33 @@ button[aria-label*="Play"]
     height: 24px;
 }
 
+.main-actionBar-ActionBarRowTrailing button svg {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+input[aria-label*="Search in playlist"],
+input[aria-label*="Type to filter your library"] {
+    background: var(--spice-placeholder-bg);
+    border: 1px solid var(--spice-tap-border-dark);
+    border-bottom: 3px solid var(--spice-accent);
+    border-radius: 6px;
+}
+
+button[aria-label*="Search in playlist"],
+button[aria-label*="Search in Playlists"] {
+    border: 1px solid transparent;
+    /* border-bottom: 3px solid transparent; */
+}
+
+/* Mini search input icon = .vzE1QA11hRvpSy0vMr8a */
+
+/* .vzE1QA11hRvpSy0vMr8a svg {
+    background: var(--spice-text);
+    mask-size: 100%;
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_search_24_regular.svg");
+} */
+
 /* playlist container header */
 
 .rrn0EjHTu7eCxn9G0Rrc {
@@ -1293,10 +1320,10 @@ button[aria-label*="Play"]
 
 .i4al53dvQH5ltFut6LyQ:has(img.fF97jAvlGYYHbI3_vPlV) {
     background: var(--spice-accent);
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     mask-size: 100%;
-    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/FluentLive24Regular.svg");
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/FluentLive16Regular.svg");
 }
 
 .i4al53dvQH5ltFut6LyQ:has(img.fF97jAvlGYYHbI3_vPlV) path {
@@ -1318,4 +1345,50 @@ button[aria-label*="Play"]
     width: 18px;
     height: 18px;
     mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/FluentPause16Regular.svg");
+}
+
+a:not([data-encore-id]) {
+    cursor: pointer !important;
+}
+
+/* -------------------------------------------------------------- Context Menu -------------------------------------------------------------- */
+
+#context-menu div:has(ul),
+#context-menu ul {
+    background: var(--spice-main);
+    border-radius: 10px;
+}
+
+#context-menu #sort-and-view-picker>:not(:last-child) {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* context menu item separator = .nALFwaXa3XBXiy22PC8m */
+
+#context-menu .nALFwaXa3XBXiy22PC8m,
+#context-menu #sort-and-view-picker>:not(:last-child)::after {
+    border-bottom: 1px solid var(--spice-light-border);
+}
+
+#context-menu #sort-and-view-picker>:last-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+#context-menu ul li button:hover,
+#context-menu ul li a:hover {
+    border-radius: 6px;
+    background: var(--tap-overlay-1);
+}
+
+/* -------------------------------------------------------------- Notifications -------------------------------------------------------------- */
+
+.notistack-SnackbarContainer {
+    margin-bottom: 100px;
+}
+
+.notistack-SnackbarContainer .e-10860-legacy-box--elevated {
+    background: var(--spice-main);
+    border: 1px solid var(--spice-dark-border);
 }
