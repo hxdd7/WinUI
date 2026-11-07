@@ -59,6 +59,18 @@ kbd {
     fill: var(--spice-accent) !important;
 }
 
+/* -------------------------------------------------------------- Main Container bottom padding -------------------------------------------------------------- */
+
+/* Recommended playlists on spotify playlist pages container */
+
+.playlist-playlist-playlistContent, #main-view:not(:has(main[aria-label*="Spotify Playlist"], section[data-testid="album-page"], section[data-testid="artist-page"])) ._sDpQeImbNQdR3SDxN2X {
+    padding-bottom: 100px;
+}
+
+.contentSpacing:has(div[data-testid="recommended-track"]) ._sDpQeImbNQdR3SDxN2X {
+    padding-bottom: 0 !important;
+}
+
 #global-nav-bar {
     height: 50px !important;
     -webkit-app-region: drag;
@@ -810,7 +822,7 @@ div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ)
 /* -------------------------------------------------------------- Now Playing Bar -------------------------------------------------------------- */
 
 .Root__top-container .XvuTwlgQRqJ5NnVLN9ZH {
-    background: rgba(var(--spice-rgb-main), 0.9);
+    background: rgba(var(--spice-rgb-main), 0.8);
     border-top: 1px solid var(--spice-dark-border);
     position: absolute;
     bottom: 0;
@@ -1208,7 +1220,7 @@ button[aria-label*="Play"]
 
 .main-actionBar-ActionBar {
     padding-top: 16px;
-    padding-bottom: 16px;
+    padding-bottom: 28px;
 }
 
 .main-actionBar-ActionBar .main-actionBar-ActionBarRow button svg {
@@ -1222,7 +1234,8 @@ button[aria-label*="Play"]
 }
 
 input[aria-label*="Search in playlist"],
-input[aria-label*="Type to filter your library"] {
+input[aria-label*="Type to filter your library"],
+input[aria-label*="Find a playlist"]:focus {
     background: var(--spice-placeholder-bg);
     border: 1px solid var(--spice-tap-border-dark);
     border-bottom: 3px solid var(--spice-accent);
@@ -1261,12 +1274,13 @@ button[aria-label*="Search in Playlists"] {
 
 /* playlist container list items */
 
-.hTpWVlpLWHWsS8EraaVm div:nth-child(odd) .xwwlUJUZLpjPnZByq04Y {
+#main-view:has(section[data-testid="playlist-page"], section[data-testid="artist-page"]) .hTpWVlpLWHWsS8EraaVm div:nth-child(odd) .xwwlUJUZLpjPnZByq04Y,
+.hTpWVlpLWHWsS8EraaVm div[role="presentation"]:nth-child(odd) .xwwlUJUZLpjPnZByq04Y {
     background: var(--spice-tap-solid-light);
     border: 1px solid var(--spice-playlist-item-border);
     border-radius: 10px;
-    margin-top: 3px;
-    margin-bottom: 3px;
+    /* margin-top: 3px; */
+    /* margin-bottom: 3px; */
 }
 
 
@@ -1275,8 +1289,8 @@ button[aria-label*="Search in Playlists"] {
     background: var(--spice-tap-solid-light);
     border: 1px solid var(--spice-playlist-item-border);
     border-radius: 10px;
-    margin-top: 3px;
-    margin-bottom: 3px;
+    /* margin-top: 3px; */
+    /* margin-bottom: 3px; */
 }
 
 .PQ3vdCK6K0dS_7YG7rLQ .encore-internal-color-text-subdued div a {
@@ -1331,8 +1345,10 @@ button[aria-label*="Search in Playlists"] {
 }
 
 /* Playlist container playlist item = .xwwlUJUZLpjPnZByq04Y */
+/* Playlist container playlist item selected/pressed = .cBaCr8a86htxgcL815Aw */
 
-.xwwlUJUZLpjPnZByq04Y:hover .i4al53dvQH5ltFut6LyQ {
+.xwwlUJUZLpjPnZByq04Y:hover .i4al53dvQH5ltFut6LyQ,
+.cBaCr8a86htxgcL815Aw .i4al53dvQH5ltFut6LyQ {
     background: var(--spice-text);
     width: 18px;
     height: 18px;
@@ -1351,10 +1367,35 @@ a:not([data-encore-id]) {
     cursor: pointer !important;
 }
 
+/* song key = .Psc6sReKFsPXwnz1kvAR */
+
+.Psc6sReKFsPXwnz1kvAR {
+    font-weight: 600;
+}
+
+/* album page behind background = .hbNOZbHD3bPL3OcHQWNn */
+
+#main-view:has(section[data-testid="playlist-page"]) .main-entityHeader-container .uP1rcUSIWCFaOZaoH0ZG,
+#main-view:has(section[data-testid="album-page"]) .main-entityHeader-container .hbNOZbHD3bPL3OcHQWNn {
+    background: var(--spice-main) !important;
+}
+
+/* Liked Songs page filter tags main container (ContentSpacing) = .S0KCBYCbTPkz8C7cnz7B */
+
+.S0KCBYCbTPkz8C7cnz7B {
+    margin-bottom: 24px;
+}
+
 /* -------------------------------------------------------------- Context Menu -------------------------------------------------------------- */
 
+#context-menu {
+    border: 1px solid var(--spice-light-border);
+    border-radius: 10px;
+}
+
 #context-menu div:has(ul),
-#context-menu ul {
+#context-menu ul,
+.xBwudyWl0JKIQLuT1MCd, .jIrW1UoltgSPlumugMzx {
     background: var(--spice-main);
     border-radius: 10px;
 }
@@ -1376,10 +1417,69 @@ a:not([data-encore-id]) {
     border-top-right-radius: 0;
 }
 
-#context-menu ul li button:hover,
-#context-menu ul li a:hover {
+#context-menu ul li button:not([aria-label*="Sort by"]):hover,
+#context-menu ul li a:hover,
+#context-menu button[as="button"]:not([aria-label*="Sort by"]):hover>:first-child {
     border-radius: 6px;
     background: var(--tap-overlay-1);
+}
+
+/* playlist adding context menu header-pre-title = .TdugIbzoVXbXHmM1jg2p */
+
+.TdugIbzoVXbXHmM1jg2p {
+    font-weight: 500;
+}
+
+#context-menu input[aria-label*="Find a playlist"] {
+    background: var(--tap-overlay-1) !important;
+    border: 1px solid var(--spice-tap-border-light) !important;
+    border-radius: 6px !important;
+    transition: all 0.2s linear;
+}
+
+#context-menu input[aria-label*="Find a playlist"]:hover {
+    background: var(--tap-overlay-2) !important;
+}
+
+#context-menu input[aria-label*="Find a playlist"]:focus {
+    background: var(--tap-overlay-dark) !important;
+    border-bottom: 1px solid var(--spice-tap-border-light) !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+#context-menu div:has(input[aria-label*="Find a playlist"])::after {
+    content: "";
+    height: 2px;
+    width: calc(100% - 26px);
+    background: transparent;
+    display: flex;
+    position: absolute;
+}
+
+#context-menu div:has(input[aria-label*="Find a playlist"]:focus)::after {
+    background: var(--spice-accent);
+}
+
+/* context menu section headers = .tSROZwzHErAylbYPbkcb */
+/* Playlist edit context menu section headers = .nHSruosiWAzOni8Fppdc */
+
+#context-menu .tSROZwzHErAylbYPbkcb,
+#context-menu .nHSruosiWAzOni8Fppdc span {
+    font-weight: 500;
+    font-size: var(--encore-text-size-smaller-2) !important;
+}
+
+#context-menu form span:has(svg) svg {
+    height: 16px !important;
+    width: 16px !important;
+    mask-size: 100%;
+    background: var(--spice-text);
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_search_24_regular.svg");
+}
+
+#context-menu form span:has(svg) svg path{
+    display: none;
 }
 
 /* -------------------------------------------------------------- Notifications -------------------------------------------------------------- */
@@ -1391,4 +1491,81 @@ a:not([data-encore-id]) {
 .notistack-SnackbarContainer .e-10860-legacy-box--elevated {
     background: var(--spice-main);
     border: 1px solid var(--spice-dark-border);
+}
+
+/* -------------------------------------------------------------- Artist page -------------------------------------------------------------- */
+
+#main-view:has(section[data-testid="artist-page"]) .main-entityHeader-container:not(.main-entityHeader-withoutBackgroundImage) .main-entityHeader-contentWrapper,
+#main-view:has(main[aria-label*="Spotify Playlist"]) .main-entityHeader-contentWrapper {
+    background: transparent !important;
+    border: 1px solid transparent;
+}
+
+#main-view:has(section[data-testid="artist-page"]) .main-entityHeader-container.main-entityHeader-withoutBackgroundImage .uP1rcUSIWCFaOZaoH0ZG:not(.nfBy1HoO33kgPOyEc3WZ) {
+    opacity: 0;
+}
+
+/* #main-view:has(section[data-testid="artist-page"]) .main-entityHeader-container.main-entityHeader-withoutBackgroundImage .main-entityHeader-contentWrapper {
+    background: var(--spice-main) !important;
+    border: transparent;
+} */
+
+#main-view:has(section[data-testid="artist-page"]) .main-entityHeader-container.main-entityHeader-withoutBackgroundImage .main-entityHeader-contentWrapper .main-entityHeader-adaptiveHeaderContainer {
+    height: fit-content;
+}
+
+/* Artist without background image/Playlist behind color gradient = .uP1rcUSIWCFaOZaoH0ZG */
+
+#main-view:has(section[data-testid="artist-page"]) .main-entityHeader-container.main-entityHeader-withBackgroundImage,
+#main-view:has(section[data-testid="artist-page"]) .main-entityHeader-container.main-entityHeader-withoutBackgroundImage .uP1rcUSIWCFaOZaoH0ZG,
+#main-view:has(main[aria-label*="Spotify Playlist"]) .main-entityHeader-container {
+    background-image: linear-gradient(0deg, var(--spice-main), transparent);
+}
+
+/* Artist without background image action bar gradient = .IfBZ5VdI_2nwDMl4H6Yh */
+
+.IfBZ5VdI_2nwDMl4H6Yh {
+    background: var(--spice-main) !important;
+}
+
+/* Artist without background image bottom container (Without the top artist profile container) = .IfBZ5VdI_2nwDMl4H6Yh */
+
+/* #main-view:has(.main-entityHeader-container.main-entityHeader-withoutBackgroundImage) .GECIboaMmkIqHDKwQ3vR {
+    margin-top: 40px;
+} */
+
+#main-view:has(main[aria-label*="Spotify Playlist"]) .main-entityHeader-container.main-entityHeader-withBackgroundImage {
+    height: 34vh;
+}
+
+#main-view:has(main[aria-label*="Spotify Playlist"]) .main-entityHeader-pretitle {
+    color: var(--spice-text);
+}
+
+.main-topBar-background {
+    background: rgba(var(--spice-rgb-main), 0.8);
+    border-top: 1px solid var(--spice-dark-border);
+    position: absolute;
+    bottom: 0;
+    width: calc(100% + 16px);
+    backdrop-filter: blur(var(--blur)) saturate(200%);
+    border-bottom: 1px solid var(--tap-overlay-1);
+}
+
+.main-topBar-background .main-topBar-overlay {
+    background: transparent;
+}
+
+.main-topBar-background::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0.4;
+    background-image: var(--noise);
+}
+
+.main-topBar-topbarContentContainer button .e-10860-button-primary__inner.encore-bright-accent-set {
+    transform: scale(0.75);
+    border-radius: 12px !important;
 }
