@@ -51,6 +51,8 @@ kbd {
     line-height: var(--body-height) !important;
 }
 
+a[id*="settings.title"] {}
+
 .encore-internal-color-text-bright-accent {
     color: var(--spice-accent) !important;
 }
@@ -85,7 +87,17 @@ kbd {
     border-bottom-right-radius: 0px;
 }
 
+/* MainView additional footer padding element */
+/* User Profile page section element class = .i4VjcYlZSKbxJyHFVJVX */
+
+.GECIboaMmkIqHDKwQ3vR,
+.i4VjcYlZSKbxJyHFVJVX,
+div[data-testid="settings-page"] {
+    padding-bottom: 120px;
+}
+
 /* Force non-drag behavior on the space below or around it */
+
 .Root__top-container {
     -webkit-app-region: no-drag !important;
 }
@@ -607,13 +619,16 @@ div[role="grid"][aria-label="Your Library"],
     transform: translate(4px, -4px);
 }
 
-span.e-10860-legacy-chip__inner {
+span.e-10860-legacy-chip__inner,
+.e-10860-chip-clear {
     background: var(--tap-overlay-1) !important;
     border: 1px solid var(--spice-light-border) !important;
     padding-inline: 14px !important;
+    transition: all 0.1s ease-in-out;
 }
 
-span.e-10860-legacy-chip__inner:hover {
+span.e-10860-legacy-chip__inner:hover,
+.e-10860-chip-clear:hover {
     background: var(--tap-overlay-2) !important;
 }
 
@@ -630,6 +645,10 @@ span.e-10860-legacy-chip__inner:hover {
 span.e-10860-legacy-chip__inner.encore-inverted-light-set.e-10860-legacy-chip__inner--secondary {
     padding-inline-start: 48px !important;
     background: var(--spice-accent-hover) !important;
+}
+
+.e-10860-chip-clear {
+    padding-inline: var(--encore-spacing-tighter-2) !important;
 }
 
 /* -------------------------------------------------------------- Compact Sidebar -------------------------------------------------------------- */
@@ -1082,8 +1101,12 @@ button.e-10860-legacy-button-secondary--text-base,
     transform: scale(1) !important;
 }
 
+/* Spotify Settings page dropdown input = .i_w_TeKYqtAjLv7FNWEa */
+
 button.e-10860-legacy-button-secondary--text-base,
-.bvwKlnQTGRXyuQjCSHps button.e-10860-legacy-button-primary span:has(span) {
+.bvwKlnQTGRXyuQjCSHps button.e-10860-legacy-button-primary span:has(span),
+.i_w_TeKYqtAjLv7FNWEa,
+a[id*=".settings."] {
     background: var(--tap-overlay-1) !important;
     border: 1px solid var(--tap-overlay-1);
     border-bottom: var(--tap-overlay-dark);
@@ -1091,6 +1114,16 @@ button.e-10860-legacy-button-secondary--text-base,
     transition: all 0.2s linear;
     font-weight: 400 !important;
     font-size: var(--body-size);
+    border-radius: 5px !important;
+}
+
+button.e-10860-legacy-button-secondary--text-base:hover,
+.bvwKlnQTGRXyuQjCSHps
+    button.e-10860-legacy-button-primary:hover
+    span:has(span),
+.i_w_TeKYqtAjLv7FNWEa:hover,
+a[id*=".settings."]:hover {
+    background: var(--tap-overlay-2) !important;
 }
 
 /* Toolbar button container */
@@ -1110,13 +1143,6 @@ button.e-10860-legacy-button-secondary--text-base,
 ._Lgo2vQslHP6WrPP_piO button.e-10860-legacy-button-primary span:has(span) svg {
     width: 16px;
     height: 16px;
-}
-
-button.e-10860-legacy-button-secondary--text-base:hover,
-.bvwKlnQTGRXyuQjCSHps
-    button.e-10860-legacy-button-primary:hover
-    span:has(span) {
-    background: var(--tap-overlay-2) !important;
 }
 
 /* -------------------------------------------------------------- Main View -------------------------------------------------------------- */
@@ -1235,7 +1261,8 @@ button[aria-label*="Play"]
 
 input[aria-label*="Search in playlist"],
 input[aria-label*="Type to filter your library"],
-input[aria-label*="Find a playlist"]:focus {
+input[aria-label*="Find a playlist"]:focus,
+input[aria-label*="Search in Settings"] {
     background: var(--spice-placeholder-bg);
     border: 1px solid var(--spice-tap-border-dark);
     border-bottom: 3px solid var(--spice-accent);
@@ -1274,23 +1301,39 @@ button[aria-label*="Search in Playlists"] {
 
 /* playlist container list items */
 
+/* Playlist conteint = .hTpWVlpLWHWsS8EraaVm */
+
 #main-view:has(section[data-testid="playlist-page"], section[data-testid="artist-page"]) .hTpWVlpLWHWsS8EraaVm div:nth-child(odd) .xwwlUJUZLpjPnZByq04Y,
 .hTpWVlpLWHWsS8EraaVm div[role="presentation"]:nth-child(odd) .xwwlUJUZLpjPnZByq04Y {
     background: var(--spice-tap-solid-light);
     border: 1px solid var(--spice-playlist-item-border);
     border-radius: 10px;
-    /* margin-top: 3px; */
-    /* margin-bottom: 3px; */
+    transition: all 0.1s ease-in-out;
 }
 
+#main-view:has(section[data-testid="playlist-page"], section[data-testid="artist-page"]) .hTpWVlpLWHWsS8EraaVm div:nth-child(odd):hover .xwwlUJUZLpjPnZByq04Y,
+.hTpWVlpLWHWsS8EraaVm div[role="presentation"]:nth-child(odd):hover .xwwlUJUZLpjPnZByq04Y {
+    background: var(--tap-overlay-2);
+}
 
 .hTpWVlpLWHWsS8EraaVm .xwwlUJUZLpjPnZByq04Y:hover,
 .xwwlUJUZLpjPnZByq04Y.cBaCr8a86htxgcL815Aw {
-    background: var(--spice-tap-solid-light);
+    background: var(--spice-panel);
     border: 1px solid var(--spice-playlist-item-border);
     border-radius: 10px;
-    /* margin-top: 3px; */
-    /* margin-bottom: 3px; */
+    transition: all 0.1s ease-in-out;
+}
+
+.hTpWVlpLWHWsS8EraaVm button.Qc80QyhjpxHbGL_JEXBH[aria-label*="Play"] svg {
+    mask-size: 100%;
+    background: var(--spice-text) !important;
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_play_24_filled.svg");
+}
+
+.hTpWVlpLWHWsS8EraaVm button.Qc80QyhjpxHbGL_JEXBH[aria-label*="Pause"] svg {
+    mask-size: 100%;
+    background: var(--spice-text) !important;
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_pause_24_filled.svg");
 }
 
 .PQ3vdCK6K0dS_7YG7rLQ .encore-internal-color-text-subdued div a {
@@ -1310,7 +1353,8 @@ button[aria-label*="Search in Playlists"] {
 
 /* Explicit tag = .FF83_VKs2R0PVdr6cbxw */
 
-.FF83_VKs2R0PVdr6cbxw span {
+.FF83_VKs2R0PVdr6cbxw span,
+span[title*="Explicit"] {
     color: var(--spice-alt-text) !important;
     font-weight: 500;
     background: var(--spice-accent);
@@ -1501,7 +1545,7 @@ a:not([data-encore-id]) {
     border: 1px solid transparent;
 }
 
-#main-view:has(section[data-testid="artist-page"]) .main-entityHeader-container.main-entityHeader-withoutBackgroundImage .uP1rcUSIWCFaOZaoH0ZG:not(.nfBy1HoO33kgPOyEc3WZ) {
+.main-entityHeader-container.main-entityHeader-withoutBackgroundImage .uP1rcUSIWCFaOZaoH0ZG {
     opacity: 0;
 }
 
@@ -1542,7 +1586,8 @@ a:not([data-encore-id]) {
     color: var(--spice-text);
 }
 
-.main-topBar-background {
+.main-topBar-background,
+.xCEkyVpabf3oVGmFQVej {
     background: rgba(var(--spice-rgb-main), 0.8);
     border-top: 1px solid var(--spice-dark-border);
     position: absolute;
@@ -1552,11 +1597,13 @@ a:not([data-encore-id]) {
     border-bottom: 1px solid var(--tap-overlay-1);
 }
 
-.main-topBar-background .main-topBar-overlay {
-    background: transparent;
+.main-topBar-background .main-topBar-overlay,
+.xCEkyVpabf3oVGmFQVej::after {
+    background: transparent !important;
 }
 
-.main-topBar-background::before {
+.main-topBar-background::before,
+.xCEkyVpabf3oVGmFQVej::before {
     content: "";
     width: 100%;
     height: 100%;
@@ -1568,4 +1615,210 @@ a:not([data-encore-id]) {
 .main-topBar-topbarContentContainer button .e-10860-button-primary__inner.encore-bright-accent-set {
     transform: scale(0.75);
     border-radius: 12px !important;
+}
+
+.encore-text-body-small:hover a:not([data-encore-id]) {
+    text-decoration: none !important;
+}
+
+/* -------------------------------------------------------------- Home -------------------------------------------------------------- */
+
+/* Global Card Image container = .NMt6sLFwXdQoCRD6zzVJ */
+
+.NMt6sLFwXdQoCRD6zzVJ:not(.gyHofA9F4_gDYkeEmIwO) {
+    border-radius: 8px;
+    box-shadow: none;
+    border: 1px solid var(--spice-light-border);
+}
+
+/* Global Card Artist Image container = .gyHofA9F4_gDYkeEmIwO */
+
+.gyHofA9F4_gDYkeEmIwO:not(img) {
+    box-shadow: none;
+    border: 1px solid var(--spice-light-border);
+}
+
+/* Home Filter tags "Following tag" = .kKTArCCAPNmsiSUf2pRY */
+
+.kKTArCCAPNmsiSUf2pRY {
+    margin-inline-start: 0 !important;
+}
+
+.kKTArCCAPNmsiSUf2pRY:has(span.e-10860-legacy-chip__inner.encore-inverted-light-set.e-10860-legacy-chip__inner--secondary) {
+    margin-left: -48px !important;
+}
+
+
+/* -------------------------------------------------------------- Settings Page -------------------------------------------------------------- */
+
+div[data-testid="settings-page"] h1 {
+    font-weight: 600;
+}
+
+.i_w_TeKYqtAjLv7FNWEa {
+    color: var(--spice-text);
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: 40px;
+}
+
+span:has(.i_w_TeKYqtAjLv7FNWEa) {
+    position: relative;
+}
+
+span:has(.i_w_TeKYqtAjLv7FNWEa)::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    mask-size: 100%;
+    position: absolute;
+    background: var(--spice-text);
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_chevron_down_24_filled.svg");
+    pointer-events: none;
+}
+
+select.i_w_TeKYqtAjLv7FNWEa option {
+  background-color: var(--spice-main);
+  color: var(--spice-text); 
+  padding: 8px 12px;
+}
+
+/* Settings Page setting card container = .HLgRNZVVhdP264kxRPEH */
+
+.HLgRNZVVhdP264kxRPEH {
+    gap: 4px;
+}
+
+.HLgRNZVVhdP264kxRPEH h2 {
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+/* Settings Page setting card = .lyZM0ODBjJIOIrNwIRAg */
+/* Settings Page page zoom editor container = .NXLxQkqkKd0rSuq5sfqw */
+
+.lyZM0ODBjJIOIrNwIRAg, .NXLxQkqkKd0rSuq5sfqw {
+    padding: 18px;
+    border-radius: 6px;
+    background: var(--spice-tap-solid-light);
+    border: 1px solid var(--spice-playlist-item-border);
+}
+
+/* Settings Page page zoom editor container checkboxes container = .x_DfuZBdL1QTTw_a5zqq */
+
+.x_DfuZBdL1QTTw_a5zqq {
+    background: var(--spice-tap-solid-light);
+}
+
+/* Settings Page page zoom editor container checkboxes container active checkbox = .VWAWPS1LioqXU3sLKQ8Y.uCMStj7V9tcF8ZkM2ToD */
+
+.VWAWPS1LioqXU3sLKQ8Y.uCMStj7V9tcF8ZkM2ToD {
+    border: 1px solid var(--spice-accent);
+}
+
+.lyZM0ODBjJIOIrNwIRAg label {
+    color: var(--spice-text);
+}
+
+/* Settings Page page zoom editor container checkboxes line = .OY8oyneYwC66XtIhnKyG */
+
+.OY8oyneYwC66XtIhnKyG:before {
+    background-color: var(--spice-thumb);
+}
+
+/* Settings Page Checkbox input label element = .eYM6pbrEd35TTR2AjDvm */
+
+.lyZM0ODBjJIOIrNwIRAg label span:has(span) {
+    width: 42px;
+    height: 20px;
+    border: 1px solid var(--spice-chechbox-border);
+}
+
+.lyZM0ODBjJIOIrNwIRAg label span:has(span) {
+    background: var(--spice-main) !important;
+}
+
+.lyZM0ODBjJIOIrNwIRAg label input:hover ~ span:has(span) {
+    background: var(--spice-tap-solid-light) !important;
+}
+
+.lyZM0ODBjJIOIrNwIRAg label input ~ span:has(span) span {
+    top: 50%;
+    transform: translateY(-50%) translateX(1px);
+    width: 12px;
+    height: 12px;
+    background: var(--spice-chechbox-border) !important;
+    transition: all 0.2s ease;
+}
+
+.lyZM0ODBjJIOIrNwIRAg label input:hover ~ span:has(span) span {
+    transform: translateY(-50%) translateX(1px) scale(1.2);
+}
+
+.lyZM0ODBjJIOIrNwIRAg label input:active:not([disabled]) ~ span:has(span) span {
+    width: 16px !important;
+}
+
+.lyZM0ODBjJIOIrNwIRAg label input:checked ~ span:has(span) {
+    background: var(--spice-accent) !important;
+    border: 1px solid var(--spice-accent);
+}
+
+.lyZM0ODBjJIOIrNwIRAg label input:checked:hover ~ span:has(span) {
+    background: var(--spice-accent-hover) !important;
+    border: 1px solid var(--spice-accent-hover);
+}
+
+.lyZM0ODBjJIOIrNwIRAg label input:checked ~ span:has(span) span {
+    top: 50%;
+    transform: translateY(-50%) translateX(-1px);
+    width: 12px;
+    height: 12px;
+    background: var(--spice-alt-text) !important;
+    transition: all 0.2s ease;
+}
+
+.lyZM0ODBjJIOIrNwIRAg label input:checked:hover ~ span:has(span) span {
+    transform: translateY(-50%) translateX(-1px) scale(1.2);
+}
+
+
+.lyZM0ODBjJIOIrNwIRAg label:has(input)::before,
+.lyZM0ODBjJIOIrNwIRAg label:has(input:checked)::before {
+    content: "Off";
+    margin-right: 16px;
+    line-height: var(--body-height);
+    font-size: var(--body-size);
+}
+
+.lyZM0ODBjJIOIrNwIRAg label:has(input:checked)::before {
+    content: "On";
+}
+
+/* Equalizer container = .CvpWAsEZritIYf2cpBsM */
+
+.lyZM0ODBjJIOIrNwIRAg:has(.CvpWAsEZritIYf2cpBsM) {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin-top: -8px;
+}
+
+/* Settings card web links */
+
+.lyZM0ODBjJIOIrNwIRAg a:not([id="library-import.settings.title"], [id="web-player.settings.social.connected-apps.cta"]) {
+    color: var(--spice-accent-neon);
+    border-radius: 4px;
+}
+
+.lyZM0ODBjJIOIrNwIRAg a:hover {
+    background: var(--tap-overlay-1);
+}
+
+/* Settings card with additional note = .FOGg75g6gdMfEaiAjAng */
+
+.FOGg75g6gdMfEaiAjAng span {
+    text-decoration: none !important;
 }
