@@ -43,6 +43,10 @@ kbd {
     line-height: var(--caption-height) !important;
 }
 
+h2 {
+    font-weight: 600;
+}
+
 .encore-text-body-small,
 .encore-text-body-small-bold,
 .encore-text-body-medium,
@@ -50,8 +54,6 @@ kbd {
     font-size: var(--body-size) !important;
     line-height: var(--body-height) !important;
 }
-
-a[id*="settings.title"] {}
 
 .encore-internal-color-text-bright-accent {
     color: var(--spice-accent) !important;
@@ -65,11 +67,20 @@ a[id*="settings.title"] {}
 
 /* Recommended playlists on spotify playlist pages container */
 
-.playlist-playlist-playlistContent, #main-view:not(:has(main[aria-label*="Spotify Playlist"], section[data-testid="album-page"], section[data-testid="artist-page"])) ._sDpQeImbNQdR3SDxN2X {
+.playlist-playlist-playlistContent,
+#main-view:not(
+        :has(
+            main[aria-label*="Spotify Playlist"],
+            section[data-testid="album-page"],
+            section[data-testid="artist-page"]
+        )
+    )
+    ._sDpQeImbNQdR3SDxN2X {
     padding-bottom: 100px;
 }
 
-.contentSpacing:has(div[data-testid="recommended-track"]) ._sDpQeImbNQdR3SDxN2X {
+.contentSpacing:has(div[data-testid="recommended-track"])
+    ._sDpQeImbNQdR3SDxN2X {
     padding-bottom: 0 !important;
 }
 
@@ -465,7 +476,11 @@ button:has(figure):hover figure div {
     transform: scale(0.9);
 }
 
-/* -------------------------------------------------------------- Left Siedbar -------------------------------------------------------------- */
+button[aria-label="Change visible columns"] {
+    transform: translateX(10px);
+}
+
+/* -------------------------------------------------------------- Left Sidebar -------------------------------------------------------------- */
 
 #Desktop_LeftSidebar_Id {
     background-color: var(--spice-sidebar) !important;
@@ -1118,9 +1133,7 @@ a[id*=".settings."] {
 }
 
 button.e-10860-legacy-button-secondary--text-base:hover,
-.bvwKlnQTGRXyuQjCSHps
-    button.e-10860-legacy-button-primary:hover
-    span:has(span),
+.bvwKlnQTGRXyuQjCSHps button.e-10860-legacy-button-primary:hover span:has(span),
 .i_w_TeKYqtAjLv7FNWEa:hover,
 a[id*=".settings."]:hover {
     background: var(--tap-overlay-2) !important;
@@ -1136,7 +1149,9 @@ a[id*=".settings."]:hover {
     border-radius: 4px !important;
 }
 
-._Lgo2vQslHP6WrPP_piO button.e-10860-legacy-button-primary span:has(span):hover {
+._Lgo2vQslHP6WrPP_piO
+    button.e-10860-legacy-button-primary
+    span:has(span):hover {
     background: var(--tap-overlay-1) !important;
 }
 
@@ -1147,7 +1162,8 @@ a[id*=".settings."]:hover {
 
 /* -------------------------------------------------------------- Main View -------------------------------------------------------------- */
 
-button .e-10860-button-primary__inner.encore-bright-accent-set {
+button .e-10860-button-primary__inner.encore-bright-accent-set,
+.tB4uv64JnYFSW5k2xV_g button .e-10860-button-primary__inner {
     background: var(--spice-accent) !important;
     border: 1px solid var(--spice-accent-highlight);
     border-bottom: 1px solid var(--spice-accent-hover);
@@ -1156,26 +1172,30 @@ button .e-10860-button-primary__inner.encore-bright-accent-set {
     outline: none !important;
 }
 
-button .e-10860-button-primary__inner.encore-bright-accent-set svg {
+button .e-10860-button-primary__inner.encore-bright-accent-set svg,
+.tB4uv64JnYFSW5k2xV_g button .e-10860-button-primary__inner svg {
     width: 28px;
     height: 28px;
     mask-size: 100%;
     background: var(--spice-alt-text) !important;
 }
 
-button .e-10860-button-primary__inner.encore-bright-accent-set svg path {
+button .e-10860-button-primary__inner.encore-bright-accent-set svg path,
+.tB4uv64JnYFSW5k2xV_g button .e-10860-button-primary__inner svg path {
     display: none;
 }
 
 button[aria-label*="Pause"]
     .e-10860-button-primary__inner.encore-bright-accent-set
-    svg {
+    svg,
+.tB4uv64JnYFSW5k2xV_g button[aria-label*="Pause"] .e-10860-button-primary__inner svg {
     mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_pause_24_filled.svg");
 }
 
 button[aria-label*="Play"]
     .e-10860-button-primary__inner.encore-bright-accent-set
-    svg {
+    svg,
+.tB4uv64JnYFSW5k2xV_g button[aria-label*="Play"] .e-10860-button-primary__inner svg {
     mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_play_24_filled.svg");
 }
 
@@ -1262,7 +1282,8 @@ button[aria-label*="Play"]
 input[aria-label*="Search in playlist"],
 input[aria-label*="Type to filter your library"],
 input[aria-label*="Find a playlist"]:focus,
-input[aria-label*="Search in Settings"] {
+input[aria-label*="Search in Settings"],
+input[aria-label*="Find a playlist"] {
     background: var(--spice-placeholder-bg);
     border: 1px solid var(--spice-tap-border-dark);
     border-bottom: 3px solid var(--spice-accent);
@@ -1296,23 +1317,39 @@ button[aria-label*="Search in Playlists"] {
 }
 
 .rrn0EjHTu7eCxn9G0Rrc .wa2PCV98IHUuN_LjuUV8 {
-    border: none !important
+    border: none !important;
 }
 
 /* playlist container list items */
 
 /* Playlist conteint = .hTpWVlpLWHWsS8EraaVm */
 
-#main-view:has(section[data-testid="playlist-page"], section[data-testid="artist-page"]) .hTpWVlpLWHWsS8EraaVm div:nth-child(odd) .xwwlUJUZLpjPnZByq04Y,
-.hTpWVlpLWHWsS8EraaVm div[role="presentation"]:nth-child(odd) .xwwlUJUZLpjPnZByq04Y {
+#main-view:has(
+        section[data-testid="playlist-page"],
+        section[data-testid="artist-page"]
+    )
+    .hTpWVlpLWHWsS8EraaVm
+    div:nth-child(odd)
+    .xwwlUJUZLpjPnZByq04Y,
+.hTpWVlpLWHWsS8EraaVm
+    div[role="presentation"]:nth-child(odd)
+    .xwwlUJUZLpjPnZByq04Y {
     background: var(--spice-tap-solid-light);
     border: 1px solid var(--spice-playlist-item-border);
     border-radius: 10px;
     transition: all 0.1s ease-in-out;
 }
 
-#main-view:has(section[data-testid="playlist-page"], section[data-testid="artist-page"]) .hTpWVlpLWHWsS8EraaVm div:nth-child(odd):hover .xwwlUJUZLpjPnZByq04Y,
-.hTpWVlpLWHWsS8EraaVm div[role="presentation"]:nth-child(odd):hover .xwwlUJUZLpjPnZByq04Y {
+#main-view:has(
+        section[data-testid="playlist-page"],
+        section[data-testid="artist-page"]
+    )
+    .hTpWVlpLWHWsS8EraaVm
+    div:nth-child(odd):hover
+    .xwwlUJUZLpjPnZByq04Y,
+.hTpWVlpLWHWsS8EraaVm
+    div[role="presentation"]:nth-child(odd):hover
+    .xwwlUJUZLpjPnZByq04Y {
     background: var(--tap-overlay-2);
 }
 
@@ -1363,11 +1400,11 @@ span[title*="Explicit"] {
 /* Playlist now playing song list item = .Q_VN_DjnfmJnnbShT4rU */
 
 .Q_VN_DjnfmJnnbShT4rU .encore-internal-color-text-subdued {
-    color: var(--spice-accent-pressed) !important;
+    color: var(--spice-accent) !important;
 }
 
 .Q_VN_DjnfmJnnbShT4rU a {
-    color: var(--spice-accent-pressed) !important;
+    color: var(--spice-accent) !important;
 }
 
 /* playlist now playing song visualizer image = img.fF97jAvlGYYHbI3_vPlV */
@@ -1400,7 +1437,8 @@ span[title*="Explicit"] {
     mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/FluentPlay16Regular.svg");
 }
 
-.Q_VN_DjnfmJnnbShT4rU:hover .i4al53dvQH5ltFut6LyQ:has(img.fF97jAvlGYYHbI3_vPlV) {
+.Q_VN_DjnfmJnnbShT4rU:hover
+    .i4al53dvQH5ltFut6LyQ:has(img.fF97jAvlGYYHbI3_vPlV) {
     background: var(--spice-text);
     width: 18px;
     height: 18px;
@@ -1419,8 +1457,12 @@ a:not([data-encore-id]) {
 
 /* album page behind background = .hbNOZbHD3bPL3OcHQWNn */
 
-#main-view:has(section[data-testid="playlist-page"]) .main-entityHeader-container .uP1rcUSIWCFaOZaoH0ZG,
-#main-view:has(section[data-testid="album-page"]) .main-entityHeader-container .hbNOZbHD3bPL3OcHQWNn {
+#main-view:has(section[data-testid="playlist-page"])
+    .main-entityHeader-container
+    .uP1rcUSIWCFaOZaoH0ZG,
+#main-view:has(section[data-testid="album-page"])
+    .main-entityHeader-container
+    .hbNOZbHD3bPL3OcHQWNn {
     background: var(--spice-main) !important;
 }
 
@@ -1439,12 +1481,13 @@ a:not([data-encore-id]) {
 
 #context-menu div:has(ul),
 #context-menu ul,
-.xBwudyWl0JKIQLuT1MCd, .jIrW1UoltgSPlumugMzx {
+.xBwudyWl0JKIQLuT1MCd,
+.jIrW1UoltgSPlumugMzx {
     background: var(--spice-main);
     border-radius: 10px;
 }
 
-#context-menu #sort-and-view-picker>:not(:last-child) {
+#context-menu #sort-and-view-picker > :not(:last-child) {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 }
@@ -1452,18 +1495,20 @@ a:not([data-encore-id]) {
 /* context menu item separator = .nALFwaXa3XBXiy22PC8m */
 
 #context-menu .nALFwaXa3XBXiy22PC8m,
-#context-menu #sort-and-view-picker>:not(:last-child)::after {
+#context-menu #sort-and-view-picker > :not(:last-child)::after {
     border-bottom: 1px solid var(--spice-light-border);
 }
 
-#context-menu #sort-and-view-picker>:last-child {
+#context-menu #sort-and-view-picker > :last-child {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
 
 #context-menu ul li button:not([aria-label*="Sort by"]):hover,
 #context-menu ul li a:hover,
-#context-menu button[as="button"]:not([aria-label*="Sort by"]):hover>:first-child {
+#context-menu
+    button[as="button"]:not([aria-label*="Sort by"]):hover
+    > :first-child {
     border-radius: 6px;
     background: var(--tap-overlay-1);
 }
@@ -1492,17 +1537,23 @@ a:not([data-encore-id]) {
     border-bottom-right-radius: 0 !important;
 }
 
-#context-menu div:has(input[aria-label*="Find a playlist"])::after {
+#context-menu
+    div[role="search"]:has(input[aria-label*="Find a playlist"])::after {
     content: "";
     height: 2px;
-    width: calc(100% - 26px);
+    width: 100%;
     background: transparent;
     display: flex;
     position: absolute;
 }
 
-#context-menu div:has(input[aria-label*="Find a playlist"]:focus)::after {
+#context-menu
+    div[role="search"]:has(input[aria-label*="Find a playlist"]:focus)::after {
     background: var(--spice-accent);
+}
+
+#context-menu div[role="menuitem"]:has(div[role="search"]):hover {
+    background: transparent;
 }
 
 /* context menu section headers = .tSROZwzHErAylbYPbkcb */
@@ -1522,7 +1573,7 @@ a:not([data-encore-id]) {
     mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_search_24_regular.svg");
 }
 
-#context-menu form span:has(svg) svg path{
+#context-menu form span:has(svg) svg path {
     display: none;
 }
 
@@ -1539,13 +1590,17 @@ a:not([data-encore-id]) {
 
 /* -------------------------------------------------------------- Artist page -------------------------------------------------------------- */
 
-#main-view:has(section[data-testid="artist-page"]) .main-entityHeader-container:not(.main-entityHeader-withoutBackgroundImage) .main-entityHeader-contentWrapper,
-#main-view:has(main[aria-label*="Spotify Playlist"]) .main-entityHeader-contentWrapper {
+#main-view:has(section[data-testid="artist-page"])
+    .main-entityHeader-container:not(.main-entityHeader-withoutBackgroundImage)
+    .main-entityHeader-contentWrapper,
+#main-view:has(main[aria-label*="Spotify Playlist"])
+    .main-entityHeader-contentWrapper {
     background: transparent !important;
     border: 1px solid transparent;
 }
 
-.main-entityHeader-container.main-entityHeader-withoutBackgroundImage .uP1rcUSIWCFaOZaoH0ZG {
+.main-entityHeader-container.main-entityHeader-withoutBackgroundImage
+    .uP1rcUSIWCFaOZaoH0ZG {
     opacity: 0;
 }
 
@@ -1554,15 +1609,22 @@ a:not([data-encore-id]) {
     border: transparent;
 } */
 
-#main-view:has(section[data-testid="artist-page"]) .main-entityHeader-container.main-entityHeader-withoutBackgroundImage .main-entityHeader-contentWrapper .main-entityHeader-adaptiveHeaderContainer {
+#main-view:has(section[data-testid="artist-page"])
+    .main-entityHeader-container.main-entityHeader-withoutBackgroundImage
+    .main-entityHeader-contentWrapper
+    .main-entityHeader-adaptiveHeaderContainer {
     height: fit-content;
 }
 
 /* Artist without background image/Playlist behind color gradient = .uP1rcUSIWCFaOZaoH0ZG */
 
-#main-view:has(section[data-testid="artist-page"]) .main-entityHeader-container.main-entityHeader-withBackgroundImage,
-#main-view:has(section[data-testid="artist-page"]) .main-entityHeader-container.main-entityHeader-withoutBackgroundImage .uP1rcUSIWCFaOZaoH0ZG,
-#main-view:has(main[aria-label*="Spotify Playlist"]) .main-entityHeader-container {
+#main-view:has(section[data-testid="artist-page"])
+    .main-entityHeader-container.main-entityHeader-withBackgroundImage,
+#main-view:has(section[data-testid="artist-page"])
+    .main-entityHeader-container.main-entityHeader-withoutBackgroundImage
+    .uP1rcUSIWCFaOZaoH0ZG,
+#main-view:has(main[aria-label*="Spotify Playlist"])
+    .main-entityHeader-container {
     background-image: linear-gradient(0deg, var(--spice-main), transparent);
 }
 
@@ -1578,11 +1640,13 @@ a:not([data-encore-id]) {
     margin-top: 40px;
 } */
 
-#main-view:has(main[aria-label*="Spotify Playlist"]) .main-entityHeader-container.main-entityHeader-withBackgroundImage {
+#main-view:has(main[aria-label*="Spotify Playlist"])
+    .main-entityHeader-container.main-entityHeader-withBackgroundImage {
     height: 34vh;
 }
 
-#main-view:has(main[aria-label*="Spotify Playlist"]) .main-entityHeader-pretitle {
+#main-view:has(main[aria-label*="Spotify Playlist"])
+    .main-entityHeader-pretitle {
     color: var(--spice-text);
 }
 
@@ -1612,7 +1676,9 @@ a:not([data-encore-id]) {
     background-image: var(--noise);
 }
 
-.main-topBar-topbarContentContainer button .e-10860-button-primary__inner.encore-bright-accent-set {
+.main-topBar-topbarContentContainer
+    button
+    .e-10860-button-primary__inner.encore-bright-accent-set {
     transform: scale(0.75);
     border-radius: 12px !important;
 }
@@ -1644,10 +1710,32 @@ a:not([data-encore-id]) {
     margin-inline-start: 0 !important;
 }
 
-.kKTArCCAPNmsiSUf2pRY:has(span.e-10860-legacy-chip__inner.encore-inverted-light-set.e-10860-legacy-chip__inner--secondary) {
+/* Home Horizontal scroll section fade-in-out" = .sxqYMLW1SHzws64Rf6MA,  */
+
+.sxqYMLW1SHzws64Rf6MA:before {
+    background: linear-gradient(90deg, var(--spice-main) 0%, #0000 100%);
+}
+
+.sxqYMLW1SHzws64Rf6MA:after {
+    background: linear-gradient(-90deg, var(--spice-main) 0%, #0000 100%);
+}
+
+.kKTArCCAPNmsiSUf2pRY:has(
+    span.e-10860-legacy-chip__inner.encore-inverted-light-set.e-10860-legacy-chip__inner--secondary
+) {
     margin-left: -48px !important;
 }
 
+section[aria-label*="More like"] .e-10860-legacy-list-row--has-leading:hover
+    .e-10860-legacy-list-row__header-side::before {
+        display: none;
+    }
+
+section[aria-label*="More like"] .e-10860-legacy-list-row--has-leading {
+    align-items: center;
+}
+
+section[aria-label*="More like"] .e-10860-legacy-list-row__column .encore-internal-color-text-subdued {transform: translateY(4px);}
 
 /* -------------------------------------------------------------- Settings Page -------------------------------------------------------------- */
 
@@ -1681,9 +1769,9 @@ span:has(.i_w_TeKYqtAjLv7FNWEa)::before {
 }
 
 select.i_w_TeKYqtAjLv7FNWEa option {
-  background-color: var(--spice-main);
-  color: var(--spice-text); 
-  padding: 8px 12px;
+    background-color: var(--spice-main);
+    color: var(--spice-text);
+    padding: 8px 12px;
 }
 
 /* Settings Page setting card container = .HLgRNZVVhdP264kxRPEH */
@@ -1693,14 +1781,14 @@ select.i_w_TeKYqtAjLv7FNWEa option {
 }
 
 .HLgRNZVVhdP264kxRPEH h2 {
-    font-weight: 600;
     margin-bottom: 6px;
 }
 
 /* Settings Page setting card = .lyZM0ODBjJIOIrNwIRAg */
 /* Settings Page page zoom editor container = .NXLxQkqkKd0rSuq5sfqw */
 
-.lyZM0ODBjJIOIrNwIRAg, .NXLxQkqkKd0rSuq5sfqw {
+.lyZM0ODBjJIOIrNwIRAg,
+.NXLxQkqkKd0rSuq5sfqw {
     padding: 18px;
     border-radius: 6px;
     background: var(--spice-tap-solid-light);
@@ -1785,7 +1873,6 @@ select.i_w_TeKYqtAjLv7FNWEa option {
     transform: translateY(-50%) translateX(-1px) scale(1.2);
 }
 
-
 .lyZM0ODBjJIOIrNwIRAg label:has(input)::before,
 .lyZM0ODBjJIOIrNwIRAg label:has(input:checked)::before {
     content: "Off";
@@ -1808,7 +1895,11 @@ select.i_w_TeKYqtAjLv7FNWEa option {
 
 /* Settings card web links */
 
-.lyZM0ODBjJIOIrNwIRAg a:not([id="library-import.settings.title"], [id="web-player.settings.social.connected-apps.cta"]) {
+.lyZM0ODBjJIOIrNwIRAg
+    a:not(
+        [id="library-import.settings.title"],
+        [id="web-player.settings.social.connected-apps.cta"]
+    ) {
     color: var(--spice-accent-neon);
     border-radius: 4px;
 }
@@ -1821,4 +1912,40 @@ select.i_w_TeKYqtAjLv7FNWEa option {
 
 .FOGg75g6gdMfEaiAjAng span {
     text-decoration: none !important;
+}
+
+/* -------------------------------------------------------------- What's New Page -------------------------------------------------------------- */
+
+/* What's New Page container = section.tB4uv64JnYFSW5k2xV_g */
+
+.tB4uv64JnYFSW5k2xV_g .e-10860-legacy-list-row__header-side div div:has(img),
+.tB4uv64JnYFSW5k2xV_g .e-10860-legacy-list-row__header-side div div:has(img) img {
+    width: 99px !important;
+    height: 99px !important;
+    justify-content: flex-start;
+}
+
+.tB4uv64JnYFSW5k2xV_g .e-10860-legacy-list-row--has-leading {
+    background: var(--tap-overlay-1) !important;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    border: 1px solid var(--spice-playlist-item-border);
+    cursor: pointer !important;
+}
+
+.tB4uv64JnYFSW5k2xV_g hr {
+    display: none;
+}
+
+.tB4uv64JnYFSW5k2xV_g .e-10860-legacy-list-row--has-leading:hover .e-10860-legacy-list-row__header-side::before {
+    display: none;
+}
+
+.tB4uv64JnYFSW5k2xV_g button:has(.e-10860-button-primary__inner svg) {
+    margin-right: 12px;
+}
+
+.tB4uv64JnYFSW5k2xV_g button .e-10860-button-primary__inner svg {
+    width: 20px;
+    height: 20px;
 }
