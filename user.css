@@ -55,6 +55,10 @@ h2 {
     line-height: var(--body-height) !important;
 }
 
+.encore-text-title-small {
+    font-weight: 600 !important;
+}
+
 .encore-internal-color-text-bright-accent {
     color: var(--spice-accent) !important;
 }
@@ -1188,14 +1192,20 @@ button .e-10860-button-primary__inner.encore-bright-accent-set svg path,
 button[aria-label*="Pause"]
     .e-10860-button-primary__inner.encore-bright-accent-set
     svg,
-.tB4uv64JnYFSW5k2xV_g button[aria-label*="Pause"] .e-10860-button-primary__inner svg {
+.tB4uv64JnYFSW5k2xV_g
+    button[aria-label*="Pause"]
+    .e-10860-button-primary__inner
+    svg {
     mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_pause_24_filled.svg");
 }
 
 button[aria-label*="Play"]
     .e-10860-button-primary__inner.encore-bright-accent-set
     svg,
-.tB4uv64JnYFSW5k2xV_g button[aria-label*="Play"] .e-10860-button-primary__inner svg {
+.tB4uv64JnYFSW5k2xV_g
+    button[aria-label*="Play"]
+    .e-10860-button-primary__inner
+    svg {
     mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_play_24_filled.svg");
 }
 
@@ -1519,6 +1529,9 @@ a:not([data-encore-id]) {
     font-weight: 500;
 }
 
+input[id*="text-input"],
+textarea[data-testid*="description"],
+input[id="user-edit-name"],
 #context-menu input[aria-label*="Find a playlist"] {
     background: var(--tap-overlay-1) !important;
     border: 1px solid var(--spice-tap-border-light) !important;
@@ -1526,10 +1539,16 @@ a:not([data-encore-id]) {
     transition: all 0.2s linear;
 }
 
+input[id*="text-input"]:hover,
+textarea[data-testid*="description"]:hover,
+input[id="user-edit-name"]:hover,
 #context-menu input[aria-label*="Find a playlist"]:hover {
     background: var(--tap-overlay-2) !important;
 }
 
+input[id*="text-input"]:focus,
+textarea[data-testid*="description"]:focus,
+input[id="user-edit-name"]:focus,
 #context-menu input[aria-label*="Find a playlist"]:focus {
     background: var(--tap-overlay-dark) !important;
     border-bottom: 1px solid var(--spice-tap-border-light) !important;
@@ -1538,7 +1557,8 @@ a:not([data-encore-id]) {
 }
 
 #context-menu
-    div[role="search"]:has(input[aria-label*="Find a playlist"])::after {
+    div[role="search"]:has(input[aria-label*="Find a playlist"])::after,
+form div:has(input[id="user-edit-name"])::after {
     content: "";
     height: 2px;
     width: 100%;
@@ -1548,7 +1568,8 @@ a:not([data-encore-id]) {
 }
 
 #context-menu
-    div[role="search"]:has(input[aria-label*="Find a playlist"]:focus)::after {
+    div[role="search"]:has(input[aria-label*="Find a playlist"]:focus)::after,
+form div:has(input[id="user-edit-name"]:focus)::after {
     background: var(--spice-accent);
 }
 
@@ -1726,16 +1747,21 @@ a:not([data-encore-id]) {
     margin-left: -48px !important;
 }
 
-section[aria-label*="More like"] .e-10860-legacy-list-row--has-leading:hover
+section[aria-label*="More like"]
+    .e-10860-legacy-list-row--has-leading:hover
     .e-10860-legacy-list-row__header-side::before {
-        display: none;
-    }
+    display: none;
+}
 
 section[aria-label*="More like"] .e-10860-legacy-list-row--has-leading {
     align-items: center;
 }
 
-section[aria-label*="More like"] .e-10860-legacy-list-row__column .encore-internal-color-text-subdued {transform: translateY(4px);}
+section[aria-label*="More like"]
+    .e-10860-legacy-list-row__column
+    .encore-internal-color-text-subdued {
+    transform: translateY(4px);
+}
 
 /* -------------------------------------------------------------- Settings Page -------------------------------------------------------------- */
 
@@ -1919,7 +1945,11 @@ select.i_w_TeKYqtAjLv7FNWEa option {
 /* What's New Page container = section.tB4uv64JnYFSW5k2xV_g */
 
 .tB4uv64JnYFSW5k2xV_g .e-10860-legacy-list-row__header-side div div:has(img),
-.tB4uv64JnYFSW5k2xV_g .e-10860-legacy-list-row__header-side div div:has(img) img {
+.tB4uv64JnYFSW5k2xV_g
+    .e-10860-legacy-list-row__header-side
+    div
+    div:has(img)
+    img {
     width: 99px !important;
     height: 99px !important;
     justify-content: flex-start;
@@ -1937,7 +1967,9 @@ select.i_w_TeKYqtAjLv7FNWEa option {
     display: none;
 }
 
-.tB4uv64JnYFSW5k2xV_g .e-10860-legacy-list-row--has-leading:hover .e-10860-legacy-list-row__header-side::before {
+.tB4uv64JnYFSW5k2xV_g
+    .e-10860-legacy-list-row--has-leading:hover
+    .e-10860-legacy-list-row__header-side::before {
     display: none;
 }
 
@@ -1948,4 +1980,126 @@ select.i_w_TeKYqtAjLv7FNWEa option {
 .tB4uv64JnYFSW5k2xV_g button .e-10860-button-primary__inner svg {
     width: 20px;
     height: 20px;
+}
+
+/* -------------------------------------------------------------- Dailog boxes / Popups -------------------------------------------------------------- */
+
+div[role="dialog"] div[data-testid*="modal"],
+div[aria-label="Profile details"] {
+    background: var(--spice-panel) !important;
+    position: relative;
+    border-radius: 12px;
+    border: 1px solid var(--spice-light-border);
+}
+
+div[role="dialog"] div[data-testid*="modal"]::after,
+div[aria-label="Profile details"]::after {
+    content: "";
+    width: 100%;
+    height: 80px;
+    position: absolute;
+    bottom: 0;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    background: var(--spice-sidebar);
+}
+
+div[role="dialog"] div[data-testid*="playlist-edit-details-modal"]::after {
+    height: 128px;
+}
+
+div[role="dialog"] div[data-testid*="modal"] div,
+div[aria-label="Profile details"] div,
+div[aria-label="Profile details"] p {
+    z-index: 1;
+}
+
+
+div[aria-label="Profile details"] p {margin-top: 32px;}
+
+div[role="dialog"] div[data-testid*="modal"] .encore-text-marginal-bold {
+    font-weight: 400;
+}
+
+/* Main Dialog modal footer grid container = .Fie6ZxlLHfMVm3XrgeYz */
+
+.Fie6ZxlLHfMVm3XrgeYz {
+    grid-template: "album-image title" 32px "album-image description" 132px ".save-button" 64px "disclaimer disclaimer" / 180px 1fr;
+}
+
+/* Main User Edit Dialog modal  = .hMjDOXyc4sGurqa2TnuL */
+
+.hMjDOXyc4sGurqa2TnuL {
+    background: var(--spice-panel);
+}
+
+div[role="dialog"]
+    div[data-testid*="modal"]
+    .Fie6ZxlLHfMVm3XrgeYz
+    div:has(
+        button[data-encore-id="buttonSecondary"],
+        button[data-testid*="save-button"]
+    ) {
+    display: flex;
+    align-self: flex-end;
+}
+
+div[role="dialog"]
+    div[data-testid*="modal"]
+    button[data-testid*="save-button"],
+    div[aria-label="Profile details"]
+    button[data-encore-id="buttonPrimary"] {
+    height: 32px;
+}
+
+div[role="dialog"]
+    div[data-testid*="modal"]
+    button[data-testid*="save-button"]:hover,
+    div[aria-label="Profile details"]
+    button[data-encore-id="buttonPrimary"]:hover {
+    transform: scale(1);
+}
+
+div[role="dialog"]
+    div[data-testid*="modal"]
+    button[data-testid*="save-button"]
+    .e-10860-button-primary__inner,
+    div[aria-label="Profile details"]
+    button[data-encore-id="buttonPrimary"]
+    .e-10860-button-primary__inner {
+    display: initial !important;
+    background: var(--spice-accent) !important;
+    font-weight: 400;
+    padding-block: 6px;
+}
+
+div[role="dialog"]
+    div[data-testid*="modal"]
+    button[data-testid*="save-button"]:hover
+    .e-10860-button-primary__inner,
+    div[aria-label="Profile details"]
+    button[data-encore-id="buttonPrimary"]:hover
+    .e-10860-button-primary__inner {
+    background: var(--spice-accent-hover) !important;
+}
+
+div[role="dialog"] div[data-testid*="modal"] .main-entityHeader-image,
+div[aria-label="Profile details"] .main-entityHeader-image {
+    border: 1px solid var(--spice-light-border);
+    box-shadow: none !important;
+}
+
+div[role="dialog"] div[data-testid*="modal"] div div:has(input)::after,
+div[role="dialog"] div[data-testid*="modal"] div div:has(textarea)::after {
+    content: "";
+    height: 2px;
+    width: 100%;
+    background: transparent;
+    display: flex;
+    position: absolute;
+}
+
+div[role="dialog"] div[data-testid*="modal"] div div:has(input:focus)::after,
+div[role="dialog"] div[data-testid*="modal"] div div:has(textarea:focus)::after {
+    background: var(--spice-accent);
 }
