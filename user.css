@@ -638,17 +638,38 @@ div[role="grid"][aria-label="Your Library"],
     transform: translate(4px, -4px);
 }
 
+/* Tag list container reveal more button = .ZdLQFYsKvA3HcrDOSMyp */
+/* Tag list container reveal more back button = .gDqORSCbwbcSWQcVpGi_ */
+
 span.e-10860-legacy-chip__inner,
-.e-10860-chip-clear {
+.e-10860-chip-clear,
+.ZdLQFYsKvA3HcrDOSMyp,
+.gDqORSCbwbcSWQcVpGi_ {
     background: var(--tap-overlay-1) !important;
     border: 1px solid var(--spice-light-border) !important;
     padding-inline: 14px !important;
     transition: all 0.1s ease-in-out;
 }
 
+.ZdLQFYsKvA3HcrDOSMyp,
+.gDqORSCbwbcSWQcVpGi_ {
+    background: var(--spice-tap-solid-light) !important;
+    padding-inline: 8px !important;
+}
+
+.ZdLQFYsKvA3HcrDOSMyp svg,
+.gDqORSCbwbcSWQcVpGi_ svg {
+    fill: var(--spice-text);
+}
+
 span.e-10860-legacy-chip__inner:hover,
 .e-10860-chip-clear:hover {
-    background: var(--tap-overlay-2) !important;
+    background: var(--spice-tap-solid-light) !important;
+}
+
+.ZdLQFYsKvA3HcrDOSMyp:hover,
+.gDqORSCbwbcSWQcVpGi_:hover {
+    background: var(--spice-light-border) !important;
 }
 
 span.e-10860-legacy-chip__inner.encore-inverted-light-set {
@@ -1122,14 +1143,17 @@ button.e-10860-legacy-button-secondary--text-base,
 
 /* Spotify Settings page dropdown input = .i_w_TeKYqtAjLv7FNWEa */
 
+/* Song Embed panel widget zoom input = .jpA2DvO3sGXMwKOp3287 */
+
 button.e-10860-legacy-button-secondary--text-base,
 .bvwKlnQTGRXyuQjCSHps button.e-10860-legacy-button-primary span:has(span),
 .i_w_TeKYqtAjLv7FNWEa,
-a[id*=".settings."] {
+a[id*=".settings."],
+.jpA2DvO3sGXMwKOp3287 {
     background: var(--tap-overlay-1) !important;
     border: 1px solid var(--tap-overlay-1);
-    border-bottom: var(--tap-overlay-dark);
-    border-right: var(--tap-overlay-dark);
+    border-bottom: 1px solid var(--tap-overlay-dark);
+    border-right: 1px solid var(--tap-overlay-dark);
     transition: all 0.2s linear;
     font-weight: 400 !important;
     font-size: var(--body-size);
@@ -1174,6 +1198,7 @@ button .e-10860-button-primary__inner.encore-bright-accent-set,
     border-right: 1px solid var(--spice-accent-hover);
     border-radius: 6px !important;
     outline: none !important;
+    font-weight: 400;
 }
 
 button .e-10860-button-primary__inner.encore-bright-accent-set svg,
@@ -1293,8 +1318,9 @@ input[aria-label*="Search in playlist"],
 input[aria-label*="Type to filter your library"],
 input[aria-label*="Find a playlist"]:focus,
 input[aria-label*="Search in Settings"],
-input[aria-label*="Find a playlist"] {
-    background: var(--spice-placeholder-bg);
+input[aria-label*="Find a playlist"],
+.jpA2DvO3sGXMwKOp3287:focus {
+    background: var(--spice-placeholder-bg) !important;
     border: 1px solid var(--spice-tap-border-dark);
     border-bottom: 3px solid var(--spice-accent);
     border-radius: 6px;
@@ -1605,8 +1631,32 @@ form div:has(input[id="user-edit-name"]:focus)::after {
 }
 
 .notistack-SnackbarContainer .e-10860-legacy-box--elevated {
-    background: var(--spice-main);
-    border: 1px solid var(--spice-dark-border);
+    background: var(--spice-tap-solid-light);
+    border: 1px solid var(--spice-playlist-item-border);
+    border-radius: 4px;
+}
+
+.notistack-SnackbarContainer .e-10860-legacy-box--elevated span {
+    color: var(--spice-text);
+}
+
+/* Error Notification background = .go3651055292 */
+
+.go3651055292 {
+    background: var(--spice-notif-error);
+    border: 1px solid var(--spice-playlist-item-border);
+    border-radius: 4px;
+}
+
+.go3651055292 svg {
+    width: 16px;
+    height: 16px;
+    background: var(--spice-notif-text);
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/FluentDismissCircle24Filled.svg");
+}
+
+.go3651055292 svg path {
+    display: none;
 }
 
 /* -------------------------------------------------------------- Artist page -------------------------------------------------------------- */
@@ -1925,12 +1975,14 @@ select.i_w_TeKYqtAjLv7FNWEa option {
     a:not(
         [id="library-import.settings.title"],
         [id="web-player.settings.social.connected-apps.cta"]
-    ) {
+    ),
+dialog[aria-label="Embed track"] small a {
     color: var(--spice-accent-neon);
     border-radius: 4px;
 }
 
-.lyZM0ODBjJIOIrNwIRAg a:hover {
+.lyZM0ODBjJIOIrNwIRAg a:hover,
+dialog[aria-label="Embed track"] small a:hover {
     background: var(--tap-overlay-1);
 }
 
@@ -1985,7 +2037,8 @@ select.i_w_TeKYqtAjLv7FNWEa option {
 /* -------------------------------------------------------------- Dailog boxes / Popups -------------------------------------------------------------- */
 
 div[role="dialog"] div[data-testid*="modal"],
-div[aria-label="Profile details"] {
+div[aria-label="Profile details"],
+dialog[aria-label="Embed track"] div:has(div h1) {
     background: var(--spice-panel) !important;
     position: relative;
     border-radius: 12px;
@@ -1993,7 +2046,8 @@ div[aria-label="Profile details"] {
 }
 
 div[role="dialog"] div[data-testid*="modal"]::after,
-div[aria-label="Profile details"]::after {
+div[aria-label="Profile details"]::after,
+dialog[aria-label="Embed track"] div:has(div h1)::after {
     content: "";
     width: 100%;
     height: 80px;
@@ -2010,7 +2064,8 @@ div[role="dialog"] div[data-testid*="playlist-edit-details-modal"]::after {
 
 div[role="dialog"] div[data-testid*="modal"] div,
 div[aria-label="Profile details"] div,
-div[aria-label="Profile details"] p {
+div[aria-label="Profile details"] p,
+dialog[aria-label="Embed track"] div div {
     z-index: 1;
 }
 
@@ -2103,3 +2158,49 @@ div[role="dialog"] div[data-testid*="modal"] div div:has(input:focus)::after,
 div[role="dialog"] div[data-testid*="modal"] div div:has(textarea:focus)::after {
     background: var(--spice-accent);
 }
+
+/* Song Embed panel widget container = .oLoUBCwTyrVZ33Z007wH */
+
+/* .oLoUBCwTyrVZ33Z007wH {
+    background: var(--spice-panel);
+} */
+
+/* Song Embed panel widget zoom input = .jpA2DvO3sGXMwKOp3287 */
+
+.jpA2DvO3sGXMwKOp3287:focus {
+    border-bottom: 2px solid var(--spice-accent);
+}
+
+.dUv6tsQ4P3O04hMRnEdp {
+    padding: 24px;
+}
+
+.WnE7XdFRXcI0OAl_9Uml {
+    padding: 0 24px 24px;
+}
+
+dialog[aria-label="Embed track"] small {
+    margin-bottom: 48px;
+}
+
+dialog[aria-label="Embed track"] small a {
+    font-weight: 400;
+}
+
+dialog[aria-label="Embed track"] small a:focus {
+    text-decoration: none !important;
+}
+
+dialog[aria-label="Embed track"] button[data-encore-id="buttonPrimary"]:hover {
+    transform: scale(1);
+}
+
+dialog[aria-label="Embed track"] button[data-encore-id="buttonPrimary"] span {
+    border-radius: 4px !important;
+}
+
+dialog[aria-label="Embed track"] button[data-encore-id="buttonPrimary"]:hover span {
+    background: var(--spice-accent-hover) !important;
+}
+
+<div role="alert" aria-live="polite" id="default-curation-17945017875870.22232909275649515" style="opacity: 1; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1);"><div class="e-10860-legacy-box e-10860-legacy-box--elevated encore-light-theme encore-layout-themes W1vSh9LnwRGIJBODcwJ3" data-encore-id="box"><div class="hDiYAJVokfLjT_oILith"><div class="sUSyycax6FSj4PcRMuno"><div class="JhOTA2pevTUzQPJ7GJG0 PMxUnzRi91KRhBpK_eQu q9URzBOsFFyjvmdKqKVO" style="width: 24px; height: 24px;"><img aria-hidden="true" draggable="false" loading="lazy" src="https://misc.scdn.co/liked-songs/liked-songs-300.png" data-image-status="loaded" alt="Added to Liked Songs." class="P3H1cp8ZcZljPZPDe8Pw cNpdRdxeu_8YcC2a1IGr fL8UiTknkJJAXqnUv932"></div></div><div class="yaNMeOyQOvuuhpUlavA1"><span class="e-10860-text encore-text-body-medium encore-internal-color-text-base" data-encore-id="text">Added to Liked Songs.</span></div><div class="voPhcdZFe6XGDQSaVIWY"><button class="e-10860-legacy-button e-10860-legacy-button-tertiary e-10860-overflow-wrap-anywhere encore-text-body-small-bold e-10860-button-tertiary--condensed-all encore-internal-color-text-bright-accent" aria-hidden="true" data-encore-id="buttonTertiary">Change</button></div></div></div></div>
