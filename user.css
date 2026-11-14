@@ -646,7 +646,7 @@ span.e-10860-legacy-chip__inner,
 .ZdLQFYsKvA3HcrDOSMyp,
 .gDqORSCbwbcSWQcVpGi_ {
     background: var(--tap-overlay-1) !important;
-    border: 1px solid var(--spice-light-border) !important;
+    /* border: 1px solid var(--spice-light-border) !important; */
     padding-inline: 14px !important;
     transition: all 0.1s ease-in-out;
 }
@@ -665,6 +665,7 @@ span.e-10860-legacy-chip__inner,
 span.e-10860-legacy-chip__inner:hover,
 .e-10860-chip-clear:hover {
     background: var(--spice-tap-solid-light) !important;
+    transform: scale(1);
 }
 
 .ZdLQFYsKvA3HcrDOSMyp:hover,
@@ -674,7 +675,7 @@ span.e-10860-legacy-chip__inner:hover,
 
 span.e-10860-legacy-chip__inner.encore-inverted-light-set {
     background: var(--spice-accent) !important;
-    border: 1px solid var(--spice-accent) !important;
+    /* border: 1px solid var(--spice-accent) !important; */
     padding-inline: 14px !important;
 }
 
@@ -1077,7 +1078,7 @@ button.e-10860-legacy-button-secondary--text-base {
 }
 
 aside[aria-label*="Queue"] .lVm1Hr9E7poW9ixcuMC5 {
-    background: var(--spice-panel);
+    background: var(--spice-player);
 }
 
 aside[aria-label*="Queue"] .e-10860-legacy-box {
@@ -1131,7 +1132,7 @@ aside[aria-label*="Now playing view"] .PrgN1zoSiZcVCNSWQwci {
 /* NPV Title bottom shadow */
 
 /* ._qEwikUlZSIdhG1eHl6y {
-    box-shadow: 0 6px 10px var(--spice-panel) !important;
+    box-shadow: 0 6px 10px var(--spice-player) !important;
 } */
 
 /* Playlist toolbar */
@@ -1149,7 +1150,11 @@ button.e-10860-legacy-button-secondary--text-base,
 .bvwKlnQTGRXyuQjCSHps button.e-10860-legacy-button-primary span:has(span),
 .i_w_TeKYqtAjLv7FNWEa,
 a[id*=".settings."],
-.jpA2DvO3sGXMwKOp3287 {
+.jpA2DvO3sGXMwKOp3287,
+.searchbar-bar,
+#marketplace-settings-button,
+#marketplace-config-container .settings-row .col button,
+button[aria-label="Theme Dev Tools"] {
     background: var(--tap-overlay-1) !important;
     border: 1px solid var(--tap-overlay-1);
     border-bottom: 1px solid var(--tap-overlay-dark);
@@ -1163,8 +1168,13 @@ a[id*=".settings."],
 button.e-10860-legacy-button-secondary--text-base:hover,
 .bvwKlnQTGRXyuQjCSHps button.e-10860-legacy-button-primary:hover span:has(span),
 .i_w_TeKYqtAjLv7FNWEa:hover,
-a[id*=".settings."]:hover {
+a[id*=".settings."]:hover,
+.searchbar-bar:hover,
+#marketplace-settings-button:hover,
+#marketplace-config-container .settings-row .col button:hover,
+button[aria-label="Theme Dev Tools"]:hover {
     background: var(--tap-overlay-2) !important;
+    transform: scale(1) !important;
 }
 
 /* Toolbar button container */
@@ -1278,6 +1288,20 @@ button[aria-label*="Play"]
     font-weight: var(--body-strong-weight);
 }
 
+.main-entityHeader-headerText button figure {
+    width: 24px !important;
+    height: 24px !important;
+    /* display: flex; */
+    /* align-items: center; */
+    margin-inline-start: 0 !important;
+}
+
+.main-entityHeader-headerText button figure div {
+    width: 100% !important;
+    height: 100% !important;
+    inset-inline-start: 0 !important;
+}
+
 /* playlist details separator */
 
 /* .ZrkGftJ5OAeqoZdnTENo {
@@ -1319,7 +1343,8 @@ input[aria-label*="Type to filter your library"],
 input[aria-label*="Find a playlist"]:focus,
 input[aria-label*="Search in Settings"],
 input[aria-label*="Find a playlist"],
-.jpA2DvO3sGXMwKOp3287:focus {
+.jpA2DvO3sGXMwKOp3287:focus,
+.searchbar-bar:focus {
     background: var(--spice-placeholder-bg) !important;
     border: 1px solid var(--spice-tap-border-dark);
     border-bottom: 3px solid var(--spice-accent);
@@ -1391,7 +1416,7 @@ button[aria-label*="Search in Playlists"] {
 
 .hTpWVlpLWHWsS8EraaVm .xwwlUJUZLpjPnZByq04Y:hover,
 .xwwlUJUZLpjPnZByq04Y.cBaCr8a86htxgcL815Aw {
-    background: var(--spice-panel);
+    background: var(--spice-player);
     border: 1px solid var(--spice-playlist-item-border);
     border-radius: 10px;
     transition: all 0.1s ease-in-out;
@@ -1631,9 +1656,10 @@ form div:has(input[id="user-edit-name"]:focus)::after {
 }
 
 .notistack-SnackbarContainer .e-10860-legacy-box--elevated {
-    background: var(--spice-tap-solid-light);
+    background: var(--spice-notif-info-bg);
     border: 1px solid var(--spice-playlist-item-border);
-    border-radius: 4px;
+    border-radius: 5px;
+    padding: 16px;
 }
 
 .notistack-SnackbarContainer .e-10860-legacy-box--elevated span {
@@ -1643,20 +1669,47 @@ form div:has(input[id="user-edit-name"]:focus)::after {
 /* Error Notification background = .go3651055292 */
 
 .go3651055292 {
-    background: var(--spice-notif-error);
+    background: var(--spice-notif-error-bg);
     border: 1px solid var(--spice-playlist-item-border);
-    border-radius: 4px;
+    border-radius: 5px;
+    padding-left: 16px;
 }
 
 .go3651055292 svg {
     width: 16px;
     height: 16px;
-    background: var(--spice-notif-text);
+    mask-size: 100%;
+    mask-repeat: no-repeat;
+    background: var(--spice-notif-error-text);
     mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/FluentDismissCircle24Filled.svg");
+    margin-inline-end: 16px !important;
 }
 
-.go3651055292 svg path {
+.go3651055292 svg path,
+.notistack-SnackbarContainer
+    .e-10860-legacy-box--elevated:not(:has(img))
+    svg
+    path {
     display: none;
+}
+
+.notistack-SnackbarContainer .e-10860-legacy-box--elevated:not(:has(img)) span {
+    display: flex;
+    align-items: center;
+}
+
+.notistack-SnackbarContainer
+    .e-10860-legacy-box--elevated:not(:has(img))
+    span::before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    display: block;
+    mask-size: 100%;
+    mask-repeat: no-repeat;
+    background: var(--spice-notif-info-text);
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/FluentInfo24Filled.svg");
+    margin-inline-end: 16px !important;
 }
 
 /* -------------------------------------------------------------- Artist page -------------------------------------------------------------- */
@@ -1895,21 +1948,36 @@ select.i_w_TeKYqtAjLv7FNWEa option {
 
 /* Settings Page Checkbox input label element = .eYM6pbrEd35TTR2AjDvm */
 
-.lyZM0ODBjJIOIrNwIRAg label span:has(span) {
+.lyZM0ODBjJIOIrNwIRAg label span:has(span),
+#marketplace-config-container .settings-row .col label span:has(span) {
     width: 42px;
     height: 20px;
     border: 1px solid var(--spice-chechbox-border);
 }
 
-.lyZM0ODBjJIOIrNwIRAg label span:has(span) {
+.lyZM0ODBjJIOIrNwIRAg label span:has(span),
+#marketplace-config-container .settings-row .col label span:has(span) {
     background: var(--spice-main) !important;
 }
 
-.lyZM0ODBjJIOIrNwIRAg label input:hover ~ span:has(span) {
+.lyZM0ODBjJIOIrNwIRAg label input:hover ~ span:has(span),
+#marketplace-config-container
+    .settings-row
+    .col
+    label
+    input:hover
+    ~ span:has(span) {
     background: var(--spice-tap-solid-light) !important;
 }
 
-.lyZM0ODBjJIOIrNwIRAg label input ~ span:has(span) span {
+.lyZM0ODBjJIOIrNwIRAg label input ~ span:has(span) span,
+#marketplace-config-container
+    .settings-row
+    .col
+    label
+    input
+    ~ span:has(span)
+    span {
     top: 50%;
     transform: translateY(-50%) translateX(1px);
     width: 12px;
@@ -1918,46 +1986,95 @@ select.i_w_TeKYqtAjLv7FNWEa option {
     transition: all 0.2s ease;
 }
 
-.lyZM0ODBjJIOIrNwIRAg label input:hover ~ span:has(span) span {
+.lyZM0ODBjJIOIrNwIRAg label input:hover ~ span:has(span) span,
+#marketplace-config-container
+    .settings-row
+    .col
+    label
+    input:hover
+    ~ span:has(span)
+    span {
     transform: translateY(-50%) translateX(1px) scale(1.2);
 }
 
-.lyZM0ODBjJIOIrNwIRAg label input:active:not([disabled]) ~ span:has(span) span {
+.lyZM0ODBjJIOIrNwIRAg label input:active:not([disabled]) ~ span:has(span) span,
+#marketplace-config-container
+    .settings-row
+    .col
+    label
+    input:active:not([disabled])
+    ~ span:has(span)
+    span {
     width: 16px !important;
 }
 
-.lyZM0ODBjJIOIrNwIRAg label input:checked ~ span:has(span) {
+.lyZM0ODBjJIOIrNwIRAg label input:checked ~ span:has(span),
+#marketplace-config-container
+    .settings-row
+    .col
+    label
+    input:checked
+    ~ span:has(span) {
     background: var(--spice-accent) !important;
     border: 1px solid var(--spice-accent);
 }
 
-.lyZM0ODBjJIOIrNwIRAg label input:checked:hover ~ span:has(span) {
+.lyZM0ODBjJIOIrNwIRAg label input:checked:hover ~ span:has(span),
+#marketplace-config-container
+    .settings-row
+    .col
+    label
+    input:checked:hover
+    ~ span:has(span) {
     background: var(--spice-accent-hover) !important;
     border: 1px solid var(--spice-accent-hover);
 }
 
-.lyZM0ODBjJIOIrNwIRAg label input:checked ~ span:has(span) span {
+.lyZM0ODBjJIOIrNwIRAg label input:checked ~ span:has(span) span,
+#marketplace-config-container
+    .settings-row
+    .col
+    label
+    input:checked
+    ~ span:has(span)
+    span {
     top: 50%;
     transform: translateY(-50%) translateX(-1px);
-    width: 12px;
-    height: 12px;
+    width: 12px !important;
+    height: 12px !important;
     background: var(--spice-alt-text) !important;
     transition: all 0.2s ease;
 }
 
-.lyZM0ODBjJIOIrNwIRAg label input:checked:hover ~ span:has(span) span {
+.lyZM0ODBjJIOIrNwIRAg label input:checked:hover ~ span:has(span) span,
+#marketplace-config-container
+    .settings-row
+    .col
+    label
+    input:checked:hover
+    ~ span:has(span)
+    span {
     transform: translateY(-50%) translateX(-1px) scale(1.2);
 }
 
 .lyZM0ODBjJIOIrNwIRAg label:has(input)::before,
-.lyZM0ODBjJIOIrNwIRAg label:has(input:checked)::before {
+.lyZM0ODBjJIOIrNwIRAg label:has(input:checked)::before,
+#marketplace-config-container .settings-row .col label:has(input)::before,
+#marketplace-config-container
+    .settings-row
+    .col
+    label:has(input:checked)::before {
     content: "Off";
     margin-right: 16px;
     line-height: var(--body-height);
     font-size: var(--body-size);
 }
 
-.lyZM0ODBjJIOIrNwIRAg label:has(input:checked)::before {
+.lyZM0ODBjJIOIrNwIRAg label:has(input:checked)::before,
+#marketplace-config-container
+    .settings-row
+    .col
+    label:has(input:checked)::before {
     content: "On";
 }
 
@@ -2039,7 +2156,7 @@ dialog[aria-label="Embed track"] small a:hover {
 div[role="dialog"] div[data-testid*="modal"],
 div[aria-label="Profile details"],
 dialog[aria-label="Embed track"] div:has(div h1) {
-    background: var(--spice-panel) !important;
+    background: var(--spice-player) !important;
     position: relative;
     border-radius: 12px;
     border: 1px solid var(--spice-light-border);
@@ -2058,6 +2175,10 @@ dialog[aria-label="Embed track"] div:has(div h1)::after {
     background: var(--spice-sidebar);
 }
 
+div[role="dialog"] div[data-testid="playlist-permissions-modal"]::after {
+    display: none;
+}
+
 div[role="dialog"] div[data-testid*="playlist-edit-details-modal"]::after {
     height: 128px;
 }
@@ -2069,8 +2190,9 @@ dialog[aria-label="Embed track"] div div {
     z-index: 1;
 }
 
-
-div[aria-label="Profile details"] p {margin-top: 32px;}
+div[aria-label="Profile details"] p {
+    margin-top: 32px;
+}
 
 div[role="dialog"] div[data-testid*="modal"] .encore-text-marginal-bold {
     font-weight: 400;
@@ -2085,7 +2207,7 @@ div[role="dialog"] div[data-testid*="modal"] .encore-text-marginal-bold {
 /* Main User Edit Dialog modal  = .hMjDOXyc4sGurqa2TnuL */
 
 .hMjDOXyc4sGurqa2TnuL {
-    background: var(--spice-panel);
+    background: var(--spice-player);
 }
 
 div[role="dialog"]
@@ -2099,19 +2221,15 @@ div[role="dialog"]
     align-self: flex-end;
 }
 
-div[role="dialog"]
-    div[data-testid*="modal"]
-    button[data-testid*="save-button"],
-    div[aria-label="Profile details"]
-    button[data-encore-id="buttonPrimary"] {
+div[role="dialog"] div[data-testid*="modal"] button[data-testid*="save-button"],
+div[aria-label="Profile details"] button[data-encore-id="buttonPrimary"] {
     height: 32px;
 }
 
 div[role="dialog"]
     div[data-testid*="modal"]
     button[data-testid*="save-button"]:hover,
-    div[aria-label="Profile details"]
-    button[data-encore-id="buttonPrimary"]:hover {
+div[aria-label="Profile details"] button[data-encore-id="buttonPrimary"]:hover {
     transform: scale(1);
 }
 
@@ -2119,7 +2237,7 @@ div[role="dialog"]
     div[data-testid*="modal"]
     button[data-testid*="save-button"]
     .e-10860-button-primary__inner,
-    div[aria-label="Profile details"]
+div[aria-label="Profile details"]
     button[data-encore-id="buttonPrimary"]
     .e-10860-button-primary__inner {
     display: initial !important;
@@ -2132,7 +2250,7 @@ div[role="dialog"]
     div[data-testid*="modal"]
     button[data-testid*="save-button"]:hover
     .e-10860-button-primary__inner,
-    div[aria-label="Profile details"]
+div[aria-label="Profile details"]
     button[data-encore-id="buttonPrimary"]:hover
     .e-10860-button-primary__inner {
     background: var(--spice-accent-hover) !important;
@@ -2155,19 +2273,23 @@ div[role="dialog"] div[data-testid*="modal"] div div:has(textarea)::after {
 }
 
 div[role="dialog"] div[data-testid*="modal"] div div:has(input:focus)::after,
-div[role="dialog"] div[data-testid*="modal"] div div:has(textarea:focus)::after {
+div[role="dialog"]
+    div[data-testid*="modal"]
+    div
+    div:has(textarea:focus)::after {
     background: var(--spice-accent);
 }
 
 /* Song Embed panel widget container = .oLoUBCwTyrVZ33Z007wH */
 
 /* .oLoUBCwTyrVZ33Z007wH {
-    background: var(--spice-panel);
+    background: var(--spice-player);
 } */
 
 /* Song Embed panel widget zoom input = .jpA2DvO3sGXMwKOp3287 */
 
-.jpA2DvO3sGXMwKOp3287:focus {
+.jpA2DvO3sGXMwKOp3287:focus,
+.searchbar-bar:focus {
     border-bottom: 2px solid var(--spice-accent);
 }
 
@@ -2199,8 +2321,211 @@ dialog[aria-label="Embed track"] button[data-encore-id="buttonPrimary"] span {
     border-radius: 4px !important;
 }
 
-dialog[aria-label="Embed track"] button[data-encore-id="buttonPrimary"]:hover span {
+dialog[aria-label="Embed track"]
+    button[data-encore-id="buttonPrimary"]:hover
+    span {
     background: var(--spice-accent-hover) !important;
 }
 
-<div role="alert" aria-live="polite" id="default-curation-17945017875870.22232909275649515" style="opacity: 1; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1);"><div class="e-10860-legacy-box e-10860-legacy-box--elevated encore-light-theme encore-layout-themes W1vSh9LnwRGIJBODcwJ3" data-encore-id="box"><div class="hDiYAJVokfLjT_oILith"><div class="sUSyycax6FSj4PcRMuno"><div class="JhOTA2pevTUzQPJ7GJG0 PMxUnzRi91KRhBpK_eQu q9URzBOsFFyjvmdKqKVO" style="width: 24px; height: 24px;"><img aria-hidden="true" draggable="false" loading="lazy" src="https://misc.scdn.co/liked-songs/liked-songs-300.png" data-image-status="loaded" alt="Added to Liked Songs." class="P3H1cp8ZcZljPZPDe8Pw cNpdRdxeu_8YcC2a1IGr fL8UiTknkJJAXqnUv932"></div></div><div class="yaNMeOyQOvuuhpUlavA1"><span class="e-10860-text encore-text-body-medium encore-internal-color-text-base" data-encore-id="text">Added to Liked Songs.</span></div><div class="voPhcdZFe6XGDQSaVIWY"><button class="e-10860-legacy-button e-10860-legacy-button-tertiary e-10860-overflow-wrap-anywhere encore-text-body-small-bold e-10860-button-tertiary--condensed-all encore-internal-color-text-bright-accent" aria-hidden="true" data-encore-id="buttonTertiary">Change</button></div></div></div></div>
+/* -------------------------------------------------------------- Spicetify Marketplace -------------------------------------------------------------- */
+
+.marketplace-header {
+    padding-top: 8px;
+}
+
+.main-card-card {
+    background: var(--spice-card);
+    border-radius: 6px;
+    border: 1px solid var(--tap-overlay-1);
+}
+
+.marketplace-grid .main-card-draggable .main-card-cardMetadata {
+    margin-top: 12px;
+}
+
+.main-cardImage-imageWrapper {
+    background-color: var(--spice-default-bg);
+    border: 1px solid var(--spice-thumb);
+    overflow: hidden;
+    box-shadow: none;
+}
+
+.marketplace-card--installed {
+    border: 1px solid var(--spice-accent);
+}
+
+.marketplace-header__left button,
+button[aria-label="Theme Dev Tools"] {
+    background: var(--spice-accent) !important;
+    color: var(--spice-alt-text) !important;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    height: 32px !important;
+}
+
+.marketplace-sortBox {
+    font-size: var(--body-size);
+    line-height: var(--body-height);
+}
+
+.marketplace-sortBox .Dropdown-control {
+    height: 32px;
+    padding: 0 38px 0 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    background: var(--tap-overlay-1) !important;
+    border: 1px solid var(--tap-overlay-1);
+    border-bottom: 1px solid var(--tap-overlay-dark);
+    border-right: 1px solid var(--tap-overlay-dark);
+    transition: all 0.2s linear;
+    font-weight: 400 !important;
+    font-size: var(--body-size);
+    border-radius: 5px !important;
+    width: 200px;
+}
+
+.marketplace-sortBox .Dropdown-control::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    mask-size: 100%;
+    position: absolute;
+    background: var(--spice-text);
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    mask-image: url(https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_chevron_down_24_filled.svg);
+    pointer-events: none;
+}
+
+.Dropdown-arrow-wrapper {
+    display: none;
+}
+
+.Dropdown-root.is-open .Dropdown-menu {
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 200px;
+    background: var(--spice-main);
+    border: 1px solid var(--spice-tap-border-light);
+}
+
+.Dropdown-option {
+    border-radius: 4px;
+}
+
+.Dropdown-option:hover {
+    background: var(--tap-overlay-1);
+    color: var(--spice-text);
+}
+
+.Dropdown-option.is-selected {
+    background: var(--tap-overlay-1);
+    color: var(--spice-text);
+}
+
+.Dropdown-option.is-selected:hover {
+    background: var(--tap-overlay-2);
+}
+
+.Dropdown-option.is-selected::before {
+    content: "";
+    width: 3px;
+    height: 16px;
+    border-radius: 9999px;
+    position: absolute;
+    left: 4px;
+    background: var(--spice-accent);
+}
+
+.searchbar-bar {
+    height: 32px;
+    padding: 0 10px;
+    font-size: var(--body-size);
+    line-height: var(--body-height);
+}
+
+.searchbar-bar::placeholder {
+    color: var(--spice-text);
+}
+
+#marketplace-settings-button,
+button[aria-label="Theme Dev Tools"] {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+#marketplace-settings-button svg {
+    width: 18px !important;
+    height: 18px !important;
+    mask-size: 100%;
+    background: var(--spice-text);
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/FluentSettings24Regular.svg");
+}
+
+generic-modal :where(.spicetify-popup-title) {
+    font-weight: 600;
+}
+
+#marketplace-config-container .settings-heading {
+    font-size: var(--body-size);
+    line-height: var(--body-height);
+    border-bottom: none;
+    font-weight: 600;
+}
+
+#marketplace-config-container div:not(.settings-block-bottom) .settings-row {
+    padding: 18px;
+    border-radius: 6px;
+    background: color-mix(in oklab, var(--spice-tap-solid-light) 95%, #fff 5%);
+    border: 1px solid var(--spice-playlist-item-border);
+    margin-top: 4px;
+}
+
+#marketplace-config-container .settings-row .col {
+    padding: 0;
+}
+
+#marketplace-config-container .settings-row .col button {
+    color: var(--spice-text);
+    height: 32px;
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.marketplace-tooltip-icon svg {
+    fill: var(--spice-subtext);
+}
+
+#marketplace-config-container .settings-row .col.description {
+    font-size: var(--body-size) !important;
+    line-height: var(--body-height) !important;
+}
+
+button[aria-label="Theme Dev Tools"] svg {
+    background: var(--spice-alt-text);
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/FluentColor24Regular.svg");
+}
+
+button[aria-label="Theme Dev Tools"] svg path {
+    display: none;
+}
+
+.main-cardImage-imageWrapper--error::before {
+    background: var(--spice-subtext);
+    mask-size: 100%;
+    clip-path: none !important;
+    mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/FluentArchive24Regular.svg");
+}
