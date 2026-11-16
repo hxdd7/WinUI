@@ -9,10 +9,6 @@
     --shadow: rgba(var(--spice-rgb-subtext), 0.125);
     --shadow-main: rgba(var(--spice-rgb-subtext), 0.125);
 
-    --tap-overlay-1: rgba(150, 150, 150, 0.1);
-    --tap-overlay-2: rgba(150, 150, 150, 0.151);
-    --tap-overlay-dark: rgba(0, 0, 0, 0.1);
-
     --caption-size: 12px;
     --caption-height: 16px;
     --body-size: 14px;
@@ -35,7 +31,7 @@ span:has(kbd) {
 }
 
 kbd {
-    background: var(--tap-overlay-2);
+    background: var(--spice-input-hover);
     border: 1px solid var(--spice-tap-border-light);
     box-shadow: none !important;
     border-radius: 6px !important;
@@ -126,7 +122,7 @@ div[data-testid="settings-page"] {
     height: 34px !important;
     padding: 0 0 0 34px;
     padding-inline-end: 0 !important;
-    background: var(--tap-overlay-1) !important;
+    background: var(--spice-input) !important;
     border: 1px solid var(--spice-tap-border-light) !important;
     box-sizing: border-box !important;
     min-block-size: 30px !important;
@@ -136,11 +132,11 @@ div[data-testid="settings-page"] {
 }
 
 .Root__globalNav form input:hover {
-    background: var(--tap-overlay-2) !important;
+    background: var(--spice-input-hover) !important;
 }
 
 .Root__globalNav form input:focus {
-    background: var(--tap-overlay-dark) !important;
+    background: var(--spice-input-focus) !important;
     border: 1px solid var(--spice-tap-border-dark) !important;
     /* border-bottom: 2px solid var(--spice-accent) !important; */
     border-bottom-left-radius: 0 !important;
@@ -288,11 +284,11 @@ a:not([data-encore-id]):hover,
 }
 
 .e-10860-legacy-list-row--has-leading:hover::after {
-    background: var(--tap-overlay-1) !important;
+    background: var(--spice-input) !important;
 }
 
 form .e-10860-legacy-box--interactive:hover::after {
-    background: var(--tap-overlay-1) !important;
+    background: var(--spice-input) !important;
 }
 
 form .e-10860-legacy-box--interactive {
@@ -471,7 +467,7 @@ button:has(figure) {
 button figure div {
     width: 32px !important;
     height: 32px !important;
-    border: 1px solid var(--tap-overlay-1);
+    border: 1px solid var(--spice-input);
     border-radius: 50%;
     transition: all 0.3s ease-in-out;
 }
@@ -645,7 +641,7 @@ span.e-10860-legacy-chip__inner,
 .e-10860-chip-clear,
 .ZdLQFYsKvA3HcrDOSMyp,
 .gDqORSCbwbcSWQcVpGi_ {
-    background: var(--tap-overlay-1) !important;
+    background: var(--spice-input) !important;
     /* border: 1px solid var(--spice-light-border) !important; */
     padding-inline: 14px !important;
     transition: all 0.1s ease-in-out;
@@ -829,7 +825,7 @@ div[aria-label*="Your Library"]
 }
 
 .xNN4u6E5VGbOxYTpOp6X[aria-selected*="true"] {
-    background: var(--tap-overlay-1);
+    background: var(--spice-input);
     border-radius: 4px;
 }
 
@@ -841,7 +837,7 @@ div[aria-label*="Your Library"] .e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ {
 }
 
 .xNN4u6E5VGbOxYTpOp6X:has(.e-10860-legacy-box--interactive:hover) {
-    background: var(--tap-overlay-1);
+    background: var(--spice-input);
     border-radius: 4px;
 }
 
@@ -865,7 +861,7 @@ div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ)
 
 .O6lWIfkdVrTYW3JSTGsQ {
     border-radius: 4px;
-    background: var(--tap-overlay-dark) !important;
+    background: var(--spice-input-focus) !important;
     border: 1px solid var(--spice-tap-border-dark) !important;
 }
 
@@ -881,7 +877,7 @@ div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ)
 
 /* -------------------------------------------------------------- Now Playing Bar -------------------------------------------------------------- */
 
-.Root__top-container .XvuTwlgQRqJ5NnVLN9ZH {
+.Root__top-container .Root__now-playing-bar {
     background: rgba(var(--spice-rgb-main), 0.8);
     border-top: 1px solid var(--spice-dark-border);
     position: absolute;
@@ -891,7 +887,7 @@ div[aria-label*="Your Library"]:has(.e-10860-legacy-box.WhOLDvdymTooJlYiZbNZ)
     /* background-image: var(--noise); */
 }
 
-.Root__top-container .XvuTwlgQRqJ5NnVLN9ZH::before {
+.Root__top-container .Root__now-playing-bar::before {
     content: "";
     width: 100%;
     height: 100%;
@@ -1039,9 +1035,9 @@ button.e-10860-legacy-button-secondary--text-base {
 
 /* slider thumb */
 
-.progress-bar {
+/* .progress-bar {
     cursor: auto !important;
-}
+} */
 
 .progress-bar .progress-bar__slider {
     opacity: 1 !important;
@@ -1049,9 +1045,10 @@ button.e-10860-legacy-button-secondary--text-base {
     content: "";
     width: 20px;
     height: 20px;
-    background: var(--spice-thumb);
+    background: var(--spice-thumb-bg);
     border: 1px solid var(--spice-thumb);
     margin-left: -10px;
+    box-shadow: none;
 }
 
 .progress-bar .progress-bar__slider::before {
@@ -1086,7 +1083,7 @@ aside[aria-label*="Queue"] .e-10860-legacy-box {
 }
 
 aside[aria-label*="Queue"] .e-10860-legacy-box--interactive:hover::after {
-    background: var(--tap-overlay-1) !important;
+    background: var(--spice-input) !important;
     border-radius: 4px !important;
 }
 
@@ -1142,24 +1139,24 @@ button.e-10860-legacy-button-secondary--text-base,
     transform: scale(1) !important;
 }
 
-/* Spotify Settings page dropdown input = .i_w_TeKYqtAjLv7FNWEa */
+/* Spotify Settings page dropdown input = .main-dropDown-dropDown */
 
-/* Song Embed panel widget zoom input = .jpA2DvO3sGXMwKOp3287 */
+/* Song Embed popup widget zoom input = .jpA2DvO3sGXMwKOp3287 */
 
 button.e-10860-legacy-button-secondary--text-base,
 .bvwKlnQTGRXyuQjCSHps button.e-10860-legacy-button-primary span:has(span),
-.i_w_TeKYqtAjLv7FNWEa,
+.main-dropDown-dropDown,
 a[id*=".settings."],
 .jpA2DvO3sGXMwKOp3287,
 .searchbar-bar,
 #marketplace-settings-button,
 #marketplace-config-container .settings-row .col button,
 button[aria-label="Theme Dev Tools"] {
-    background: var(--tap-overlay-1) !important;
-    border: 1px solid var(--tap-overlay-1);
-    border-bottom: 1px solid var(--tap-overlay-dark);
-    border-right: 1px solid var(--tap-overlay-dark);
-    transition: all 0.2s linear;
+    background: var(--spice-input) !important;
+    border: 1px solid var(--spice-tap-border-light);
+    border-bottom: 1px solid var(--spice-border-bottom);
+    /* border-right: 1px solid var(--spice-input-focus); */
+    /* transition: all 0.2s linear; */
     font-weight: 400 !important;
     font-size: var(--body-size);
     border-radius: 5px !important;
@@ -1167,13 +1164,13 @@ button[aria-label="Theme Dev Tools"] {
 
 button.e-10860-legacy-button-secondary--text-base:hover,
 .bvwKlnQTGRXyuQjCSHps button.e-10860-legacy-button-primary:hover span:has(span),
-.i_w_TeKYqtAjLv7FNWEa:hover,
+.main-dropDown-dropDown:hover,
 a[id*=".settings."]:hover,
 .searchbar-bar:hover,
 #marketplace-settings-button:hover,
 #marketplace-config-container .settings-row .col button:hover,
 button[aria-label="Theme Dev Tools"]:hover {
-    background: var(--tap-overlay-2) !important;
+    background: var(--spice-input-hover) !important;
     transform: scale(1) !important;
 }
 
@@ -1190,7 +1187,7 @@ button[aria-label="Theme Dev Tools"]:hover {
 ._Lgo2vQslHP6WrPP_piO
     button.e-10860-legacy-button-primary
     span:has(span):hover {
-    background: var(--tap-overlay-1) !important;
+    background: var(--spice-input) !important;
 }
 
 ._Lgo2vQslHP6WrPP_piO button.e-10860-legacy-button-primary span:has(span) svg {
@@ -1204,8 +1201,8 @@ button .e-10860-button-primary__inner.encore-bright-accent-set,
 .tB4uv64JnYFSW5k2xV_g button .e-10860-button-primary__inner {
     background: var(--spice-accent) !important;
     border: 1px solid var(--spice-accent-highlight);
-    border-bottom: 1px solid var(--spice-accent-hover);
-    border-right: 1px solid var(--spice-accent-hover);
+    border-bottom: 1px solid var(--spice-accent-button-bottom);
+    /* border-right: 1px solid var(--spice-accent-hover); */
     border-radius: 6px !important;
     outline: none !important;
     font-weight: 400;
@@ -1273,7 +1270,7 @@ button[aria-label*="Play"]
     border: 1px solid var(--spice-thumb);
     border-radius: 8px !important;
     overflow: hidden;
-    background: var(--spice-placeholder-bg);
+    background: var(--spice-input-focus);
 }
 
 .main-entityHeader-title .main-entityHeader-titleInner h1 {
@@ -1314,8 +1311,11 @@ button[aria-label*="Play"]
 
 /* playlist action bar */
 
-.r8bczAWCEgb9_L0iyIcc {
-    background: transparent;
+.main-actionBarBackground-background,
+.main-entityHeader-overlay,
+.playlist-playlist-actionBarBackground-background {
+    background-color: var(--spice-main) !important;
+    background-image: none !important;
 }
 
 .contentSpacing {
@@ -1345,7 +1345,7 @@ input[aria-label*="Search in Settings"],
 input[aria-label*="Find a playlist"],
 .jpA2DvO3sGXMwKOp3287:focus,
 .searchbar-bar:focus {
-    background: var(--spice-placeholder-bg) !important;
+    background: var(--spice-input-focus) !important;
     border: 1px solid var(--spice-tap-border-dark);
     border-bottom: 3px solid var(--spice-accent);
     border-radius: 6px;
@@ -1367,7 +1367,7 @@ button[aria-label*="Search in Playlists"] {
 
 /* playlist container header */
 
-.rrn0EjHTu7eCxn9G0Rrc {
+.main-trackList-trackListHeader {
     padding: 0;
     /* width: calc(100% - 48px); */
     margin: auto;
@@ -1377,24 +1377,32 @@ button[aria-label*="Search in Playlists"] {
     margin-bottom: 16px;
 }
 
-.rrn0EjHTu7eCxn9G0Rrc .wa2PCV98IHUuN_LjuUV8 {
+.main-trackList-trackListHeader.iPo4a2lbrsxW9Iedav3h {
     border: none !important;
+    background: var(--spice-tap-solid-light);
+    border: 1px solid var(--spice-playlist-item-border);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.main-trackList-trackListHeaderRow {
+    border-bottom: none !important;
 }
 
 /* playlist container list items */
 
-/* Playlist conteint = .hTpWVlpLWHWsS8EraaVm */
+/* Playlist container = .main-rootlist-wrapper */
 
 #main-view:has(
         section[data-testid="playlist-page"],
         section[data-testid="artist-page"]
     )
-    .hTpWVlpLWHWsS8EraaVm
+    .main-rootlist-wrapper
     div:nth-child(odd)
-    .xwwlUJUZLpjPnZByq04Y,
-.hTpWVlpLWHWsS8EraaVm
+    .main-trackList-trackListRow,
+.main-rootlist-wrapper
     div[role="presentation"]:nth-child(odd)
-    .xwwlUJUZLpjPnZByq04Y {
+    .main-trackList-trackListRow {
     background: var(--spice-tap-solid-light);
     border: 1px solid var(--spice-playlist-item-border);
     border-radius: 10px;
@@ -1405,30 +1413,30 @@ button[aria-label*="Search in Playlists"] {
         section[data-testid="playlist-page"],
         section[data-testid="artist-page"]
     )
-    .hTpWVlpLWHWsS8EraaVm
+    .main-rootlist-wrapper
     div:nth-child(odd):hover
-    .xwwlUJUZLpjPnZByq04Y,
-.hTpWVlpLWHWsS8EraaVm
+    .main-trackList-trackListRow,
+.main-rootlist-wrapper
     div[role="presentation"]:nth-child(odd):hover
-    .xwwlUJUZLpjPnZByq04Y {
-    background: var(--tap-overlay-2);
+    .main-trackList-trackListRow {
+    background: var(--spice-input-hover);
 }
 
-.hTpWVlpLWHWsS8EraaVm .xwwlUJUZLpjPnZByq04Y:hover,
-.xwwlUJUZLpjPnZByq04Y.cBaCr8a86htxgcL815Aw {
+.main-rootlist-wrapper .main-trackList-trackListRow:hover,
+.main-trackList-trackListRow.cBaCr8a86htxgcL815Aw {
     background: var(--spice-player);
     border: 1px solid var(--spice-playlist-item-border);
     border-radius: 10px;
     transition: all 0.1s ease-in-out;
 }
 
-.hTpWVlpLWHWsS8EraaVm button.Qc80QyhjpxHbGL_JEXBH[aria-label*="Play"] svg {
+.main-rootlist-wrapper button.main-trackList-rowImagePlayButton[aria-label*="Play"] svg {
     mask-size: 100%;
     background: var(--spice-text) !important;
     mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_play_24_filled.svg");
 }
 
-.hTpWVlpLWHWsS8EraaVm button.Qc80QyhjpxHbGL_JEXBH[aria-label*="Pause"] svg {
+.main-rootlist-wrapper button.main-trackList-rowImagePlayButton[aria-label*="Pause"] svg {
     mask-size: 100%;
     background: var(--spice-text) !important;
     mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/ic_fluent_pause_24_filled.svg");
@@ -1440,7 +1448,7 @@ button[aria-label*="Search in Playlists"] {
 
 /* Playlist song list container header sticky */
 
-.iPo4a2lbrsxW9Iedav3h.rrn0EjHTu7eCxn9G0Rrc {
+.main-trackList-trackListHeader.iPo4a2lbrsxW9Iedav3h {
     background: var(--spice-tap-solid-light);
     border: 1px solid var(--spice-playlist-item-border);
     border-top: var(--spice-tap-solid-light);
@@ -1470,11 +1478,11 @@ span[title*="Explicit"] {
 
 /* playlist now playing song visualizer image = img.fF97jAvlGYYHbI3_vPlV */
 
-.i4al53dvQH5ltFut6LyQ img.fF97jAvlGYYHbI3_vPlV {
+.main-trackList-rowMarker img.fF97jAvlGYYHbI3_vPlV {
     display: none;
 }
 
-.i4al53dvQH5ltFut6LyQ:has(img.fF97jAvlGYYHbI3_vPlV) {
+.main-trackList-rowMarker:has(img.fF97jAvlGYYHbI3_vPlV) {
     background: var(--spice-accent);
     width: 18px;
     height: 18px;
@@ -1482,15 +1490,15 @@ span[title*="Explicit"] {
     mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/FluentLive16Regular.svg");
 }
 
-.i4al53dvQH5ltFut6LyQ:has(img.fF97jAvlGYYHbI3_vPlV) path {
+.main-trackList-rowMarker:has(img.fF97jAvlGYYHbI3_vPlV) path {
     display: none;
 }
 
-/* Playlist container playlist item = .xwwlUJUZLpjPnZByq04Y */
+/* Playlist container playlist item = .main-trackList-trackListRow */
 /* Playlist container playlist item selected/pressed = .cBaCr8a86htxgcL815Aw */
 
-.xwwlUJUZLpjPnZByq04Y:hover .i4al53dvQH5ltFut6LyQ,
-.cBaCr8a86htxgcL815Aw .i4al53dvQH5ltFut6LyQ {
+.main-trackList-trackListRow:hover .main-trackList-rowMarker,
+.cBaCr8a86htxgcL815Aw .main-trackList-rowMarker {
     background: var(--spice-text);
     width: 18px;
     height: 18px;
@@ -1499,7 +1507,7 @@ span[title*="Explicit"] {
 }
 
 .Q_VN_DjnfmJnnbShT4rU:hover
-    .i4al53dvQH5ltFut6LyQ:has(img.fF97jAvlGYYHbI3_vPlV) {
+    .main-trackList-rowMarker:has(img.fF97jAvlGYYHbI3_vPlV) {
     background: var(--spice-text);
     width: 18px;
     height: 18px;
@@ -1571,7 +1579,7 @@ a:not([data-encore-id]) {
     button[as="button"]:not([aria-label*="Sort by"]):hover
     > :first-child {
     border-radius: 6px;
-    background: var(--tap-overlay-1);
+    background: var(--spice-input);
 }
 
 /* playlist adding context menu header-pre-title = .TdugIbzoVXbXHmM1jg2p */
@@ -1584,7 +1592,7 @@ input[id*="text-input"],
 textarea[data-testid*="description"],
 input[id="user-edit-name"],
 #context-menu input[aria-label*="Find a playlist"] {
-    background: var(--tap-overlay-1) !important;
+    background: var(--spice-input) !important;
     border: 1px solid var(--spice-tap-border-light) !important;
     border-radius: 6px !important;
     transition: all 0.2s linear;
@@ -1594,14 +1602,14 @@ input[id*="text-input"]:hover,
 textarea[data-testid*="description"]:hover,
 input[id="user-edit-name"]:hover,
 #context-menu input[aria-label*="Find a playlist"]:hover {
-    background: var(--tap-overlay-2) !important;
+    background: var(--spice-input-hover) !important;
 }
 
 input[id*="text-input"]:focus,
 textarea[data-testid*="description"]:focus,
 input[id="user-edit-name"]:focus,
 #context-menu input[aria-label*="Find a playlist"]:focus {
-    background: var(--tap-overlay-dark) !important;
+    background: var(--spice-input-focus) !important;
     border-bottom: 1px solid var(--spice-tap-border-light) !important;
     border-bottom-left-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
@@ -1782,7 +1790,7 @@ form div:has(input[id="user-edit-name"]:focus)::after {
     bottom: 0;
     width: calc(100% + 16px);
     backdrop-filter: blur(var(--blur)) saturate(200%);
-    border-bottom: 1px solid var(--tap-overlay-1);
+    border-bottom: 1px solid var(--spice-input);
 }
 
 .main-topBar-background .main-topBar-overlay,
@@ -1872,18 +1880,18 @@ div[data-testid="settings-page"] h1 {
     font-weight: 600;
 }
 
-.i_w_TeKYqtAjLv7FNWEa {
+.main-dropDown-dropDown {
     color: var(--spice-text);
     appearance: none;
     -webkit-appearance: none;
     padding-right: 40px;
 }
 
-span:has(.i_w_TeKYqtAjLv7FNWEa) {
+span:has(.main-dropDown-dropDown) {
     position: relative;
 }
 
-span:has(.i_w_TeKYqtAjLv7FNWEa)::before {
+span:has(.main-dropDown-dropDown)::before {
     content: "";
     width: 12px;
     height: 12px;
@@ -1897,7 +1905,7 @@ span:has(.i_w_TeKYqtAjLv7FNWEa)::before {
     pointer-events: none;
 }
 
-select.i_w_TeKYqtAjLv7FNWEa option {
+select.main-dropDown-dropDown option {
     background-color: var(--spice-main);
     color: var(--spice-text);
     padding: 8px 12px;
@@ -1905,6 +1913,7 @@ select.i_w_TeKYqtAjLv7FNWEa option {
 
 /* Settings Page setting card container = .HLgRNZVVhdP264kxRPEH */
 
+.x-settings-section,
 .HLgRNZVVhdP264kxRPEH {
     gap: 4px;
 }
@@ -1913,20 +1922,20 @@ select.i_w_TeKYqtAjLv7FNWEa option {
     margin-bottom: 6px;
 }
 
-/* Settings Page setting card = .lyZM0ODBjJIOIrNwIRAg */
-/* Settings Page page zoom editor container = .NXLxQkqkKd0rSuq5sfqw */
+/* Settings Page setting card = .x-settings-row */
+/* Settings Page page zoom editor container = .x-settings-zoomContainer */
 
-.lyZM0ODBjJIOIrNwIRAg,
-.NXLxQkqkKd0rSuq5sfqw {
+.x-settings-row,
+.x-settings-zoomContainer {
     padding: 18px;
     border-radius: 6px;
     background: var(--spice-tap-solid-light);
     border: 1px solid var(--spice-playlist-item-border);
 }
 
-/* Settings Page page zoom editor container checkboxes container = .x_DfuZBdL1QTTw_a5zqq */
+/* Settings Page page zoom editor container checkboxes container = .x-settings-zoomRadioWrapper */
 
-.x_DfuZBdL1QTTw_a5zqq {
+.x-settings-zoomRadioWrapper {
     background: var(--spice-tap-solid-light);
 }
 
@@ -1936,7 +1945,7 @@ select.i_w_TeKYqtAjLv7FNWEa option {
     border: 1px solid var(--spice-accent);
 }
 
-.lyZM0ODBjJIOIrNwIRAg label {
+.x-settings-row label {
     color: var(--spice-text);
 }
 
@@ -1948,19 +1957,19 @@ select.i_w_TeKYqtAjLv7FNWEa option {
 
 /* Settings Page Checkbox input label element = .eYM6pbrEd35TTR2AjDvm */
 
-.lyZM0ODBjJIOIrNwIRAg label span:has(span),
+.x-settings-row label span:has(span),
 #marketplace-config-container .settings-row .col label span:has(span) {
     width: 42px;
     height: 20px;
     border: 1px solid var(--spice-chechbox-border);
 }
 
-.lyZM0ODBjJIOIrNwIRAg label span:has(span),
+.x-settings-row label span:has(span),
 #marketplace-config-container .settings-row .col label span:has(span) {
     background: var(--spice-main) !important;
 }
 
-.lyZM0ODBjJIOIrNwIRAg label input:hover ~ span:has(span),
+.x-settings-row label input:hover ~ span:has(span),
 #marketplace-config-container
     .settings-row
     .col
@@ -1970,7 +1979,7 @@ select.i_w_TeKYqtAjLv7FNWEa option {
     background: var(--spice-tap-solid-light) !important;
 }
 
-.lyZM0ODBjJIOIrNwIRAg label input ~ span:has(span) span,
+.x-settings-row label input ~ span:has(span) span,
 #marketplace-config-container
     .settings-row
     .col
@@ -1986,7 +1995,7 @@ select.i_w_TeKYqtAjLv7FNWEa option {
     transition: all 0.2s ease;
 }
 
-.lyZM0ODBjJIOIrNwIRAg label input:hover ~ span:has(span) span,
+.x-settings-row label input:hover ~ span:has(span) span,
 #marketplace-config-container
     .settings-row
     .col
@@ -1997,7 +2006,7 @@ select.i_w_TeKYqtAjLv7FNWEa option {
     transform: translateY(-50%) translateX(1px) scale(1.2);
 }
 
-.lyZM0ODBjJIOIrNwIRAg label input:active:not([disabled]) ~ span:has(span) span,
+.x-settings-row label input:active:not([disabled]) ~ span:has(span) span,
 #marketplace-config-container
     .settings-row
     .col
@@ -2008,7 +2017,7 @@ select.i_w_TeKYqtAjLv7FNWEa option {
     width: 16px !important;
 }
 
-.lyZM0ODBjJIOIrNwIRAg label input:checked ~ span:has(span),
+.x-settings-row label input:checked ~ span:has(span),
 #marketplace-config-container
     .settings-row
     .col
@@ -2019,7 +2028,7 @@ select.i_w_TeKYqtAjLv7FNWEa option {
     border: 1px solid var(--spice-accent);
 }
 
-.lyZM0ODBjJIOIrNwIRAg label input:checked:hover ~ span:has(span),
+.x-settings-row label input:checked:hover ~ span:has(span),
 #marketplace-config-container
     .settings-row
     .col
@@ -2030,7 +2039,7 @@ select.i_w_TeKYqtAjLv7FNWEa option {
     border: 1px solid var(--spice-accent-hover);
 }
 
-.lyZM0ODBjJIOIrNwIRAg label input:checked ~ span:has(span) span,
+.x-settings-row label input:checked ~ span:has(span) span,
 #marketplace-config-container
     .settings-row
     .col
@@ -2046,7 +2055,7 @@ select.i_w_TeKYqtAjLv7FNWEa option {
     transition: all 0.2s ease;
 }
 
-.lyZM0ODBjJIOIrNwIRAg label input:checked:hover ~ span:has(span) span,
+.x-settings-row label input:checked:hover ~ span:has(span) span,
 #marketplace-config-container
     .settings-row
     .col
@@ -2057,8 +2066,8 @@ select.i_w_TeKYqtAjLv7FNWEa option {
     transform: translateY(-50%) translateX(-1px) scale(1.2);
 }
 
-.lyZM0ODBjJIOIrNwIRAg label:has(input)::before,
-.lyZM0ODBjJIOIrNwIRAg label:has(input:checked)::before,
+.x-settings-row label:has(input)::before,
+.x-settings-row label:has(input:checked)::before,
 #marketplace-config-container .settings-row .col label:has(input)::before,
 #marketplace-config-container
     .settings-row
@@ -2070,7 +2079,7 @@ select.i_w_TeKYqtAjLv7FNWEa option {
     font-size: var(--body-size);
 }
 
-.lyZM0ODBjJIOIrNwIRAg label:has(input:checked)::before,
+.x-settings-row label:has(input:checked)::before,
 #marketplace-config-container
     .settings-row
     .col
@@ -2078,9 +2087,9 @@ select.i_w_TeKYqtAjLv7FNWEa option {
     content: "On";
 }
 
-/* Equalizer container = .CvpWAsEZritIYf2cpBsM */
+/* Equalizer container = .x-settings-equalizerSection */
 
-.lyZM0ODBjJIOIrNwIRAg:has(.CvpWAsEZritIYf2cpBsM) {
+.x-settings-row:has(.x-settings-equalizerSection) {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     margin-top: -8px;
@@ -2088,7 +2097,7 @@ select.i_w_TeKYqtAjLv7FNWEa option {
 
 /* Settings card web links */
 
-.lyZM0ODBjJIOIrNwIRAg
+.x-settings-row
     a:not(
         [id="library-import.settings.title"],
         [id="web-player.settings.social.connected-apps.cta"]
@@ -2098,9 +2107,9 @@ dialog[aria-label="Embed track"] small a {
     border-radius: 4px;
 }
 
-.lyZM0ODBjJIOIrNwIRAg a:hover,
+.x-settings-row a:hover,
 dialog[aria-label="Embed track"] small a:hover {
-    background: var(--tap-overlay-1);
+    background: var(--spice-input);
 }
 
 /* Settings card with additional note = .FOGg75g6gdMfEaiAjAng */
@@ -2125,7 +2134,7 @@ dialog[aria-label="Embed track"] small a:hover {
 }
 
 .tB4uv64JnYFSW5k2xV_g .e-10860-legacy-list-row--has-leading {
-    background: var(--tap-overlay-1) !important;
+    background: var(--spice-input) !important;
     margin-bottom: 8px;
     border-radius: 6px;
     border: 1px solid var(--spice-playlist-item-border);
@@ -2280,13 +2289,13 @@ div[role="dialog"]
     background: var(--spice-accent);
 }
 
-/* Song Embed panel widget container = .oLoUBCwTyrVZ33Z007wH */
+/* Song Embed popup widget container = .oLoUBCwTyrVZ33Z007wH */
 
 /* .oLoUBCwTyrVZ33Z007wH {
     background: var(--spice-player);
 } */
 
-/* Song Embed panel widget zoom input = .jpA2DvO3sGXMwKOp3287 */
+/* Song Embed popup widget zoom input = .jpA2DvO3sGXMwKOp3287 */
 
 .jpA2DvO3sGXMwKOp3287:focus,
 .searchbar-bar:focus {
@@ -2336,7 +2345,7 @@ dialog[aria-label="Embed track"]
 .main-card-card {
     background: var(--spice-card);
     border-radius: 6px;
-    border: 1px solid var(--tap-overlay-1);
+    border: 1px solid var(--spice-input);
 }
 
 .marketplace-grid .main-card-draggable .main-card-cardMetadata {
@@ -2376,10 +2385,10 @@ button[aria-label="Theme Dev Tools"] {
     display: flex;
     align-items: center;
     border-radius: 4px;
-    background: var(--tap-overlay-1) !important;
-    border: 1px solid var(--tap-overlay-1);
-    border-bottom: 1px solid var(--tap-overlay-dark);
-    border-right: 1px solid var(--tap-overlay-dark);
+    background: var(--spice-input) !important;
+    border: 1px solid var(--spice-input);
+    border-bottom: 1px solid var(--spice-input-focus);
+    border-right: 1px solid var(--spice-input-focus);
     transition: all 0.2s linear;
     font-weight: 400 !important;
     font-size: var(--body-size);
@@ -2420,17 +2429,17 @@ button[aria-label="Theme Dev Tools"] {
 }
 
 .Dropdown-option:hover {
-    background: var(--tap-overlay-1);
+    background: var(--spice-input);
     color: var(--spice-text);
 }
 
 .Dropdown-option.is-selected {
-    background: var(--tap-overlay-1);
+    background: var(--spice-input);
     color: var(--spice-text);
 }
 
 .Dropdown-option.is-selected:hover {
-    background: var(--tap-overlay-2);
+    background: var(--spice-input-hover);
 }
 
 .Dropdown-option.is-selected::before {
@@ -2456,12 +2465,16 @@ button[aria-label="Theme Dev Tools"] {
 
 #marketplace-settings-button,
 button[aria-label="Theme Dev Tools"] {
-    width: 32px;
+    width: 40px !important;
     height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0;
+}
+
+button[aria-label="Theme Dev Tools"]:hover {
+    background: var(--spice-accent-hover) !important;
 }
 
 #marketplace-settings-button svg {
@@ -2516,6 +2529,7 @@ generic-modal :where(.spicetify-popup-title) {
 
 button[aria-label="Theme Dev Tools"] svg {
     background: var(--spice-alt-text);
+    mask-size: 100%;
     mask-image: url("https://raw.githubusercontent.com/hxdd7/WinUI/refs/heads/main/assets/FluentColor24Regular.svg");
 }
 
